@@ -38,57 +38,19 @@ export function getReadTime(content:string, unitDefinition={
     else return `${readTime * 60} ${unitDefinition.secondPlural}`;
 }
 
-export function dateParse(dateString:string, format:string="DD MM YYYY", failQuietly:boolean=false){
-    let formatParts = format.split(/[^A-Za-z]+/gm);
-    let dateStringParts = dateString.split(/[^A-Za-z0-9]+/gm);
-    if (formatParts.length !== dateStringParts.length){
-        if (failQuietly === false) throw new Error("The dateString provided cannot be matched by the format specified");
-        return new Date();
+export function cyrb53(str:string, seed:number = 0) {
+    let h1 = 0xdeadbeef ^ seed,
+        h2 = 0x41c6ce57 ^ seed;
+    for (let i = 0, ch; i < str.length; i++) {
+        ch = str.charCodeAt(i);
+        h1 = Math.imul(h1 ^ ch, 2654435761);
+        h2 = Math.imul(h2 ^ ch, 1597334677);
     }
+    h1 = Math.imul(h1 ^ h1 >>> 16, 2246822507) ^ Math.imul(h2 ^ h2 >>> 13, 3266489909);
+    h2 = Math.imul(h2 ^ h2 >>> 16, 2246822507) ^ Math.imul(h1 ^ h1 >>> 13, 3266489909);
+    return 4294967296 * (2097151 & h2) + (h1 >>> 0);
+}
 
-    let months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
-
-    let dateStructure = {
-        day: (new Date()).getUTCDate(),
-        month: (new Date()).getMonth(),
-        year: (new Date()).getUTCFullYear(),
-        hour: 0,
-        minutes: 0,
-        seconds: 0
-    }
-
-    for (let i = 0; i < formatParts.length; i++){
-        switch (formatParts[i]){
-            case "DD":
-                dateStructure.day = Number(dateStringParts[i].replace(/[^0-9]+/gm,''));
-                break;
-            case "MM":
-                dateStructure.month = Number(dateStringParts[i]);
-                break;
-            case "MMM":
-                let lowerMatch = months.filter(m => m.substr(0,3) === dateStringParts[i].toLowerCase())[0];
-                dateStructure.month = months.indexOf(lowerMatch);
-                break;
-            case "MMMM":
-                dateStructure.month = months.indexOf(dateStringParts[i].toLowerCase());
-                break;
-            case "YY":
-                dateStructure.year = Number(`20${dateStringParts[i]}`);
-                break;
-            case "YYYY":
-                dateStructure.year = Number(dateStringParts[i]);
-                break;
-            case "hh":
-                dateStructure.hour = Number(dateStringParts[i]);
-                break;
-            case "mm":
-                dateStructure.minutes = Number(dateStringParts[i]);
-                break;
-            case "ss":
-                dateStructure.seconds = Number(dateStringParts[i]);
-                break;
-        }
-    }
-
-    return new Date(dateStructure.year, dateStructure.month, dateStructure.day, dateStructure.hour, dateStructure.minutes, dateStructure.seconds);
+export function randomString(len:number=18){
+    return [...Array(len)].map(_=>(~~(Math.random()*36)).toString(36)).join('');
 }

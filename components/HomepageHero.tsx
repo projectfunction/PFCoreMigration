@@ -22,7 +22,7 @@ export default function HomepageHero({siteTheme}){
 
 					<div className="flex__item flex__item--half flex__item--first">
 						<div className="hero__img">
-							{pfCollabSvg}
+							{pfCollabSvg()}
                         </div>
                     </div>
 		        </div>

@@ -1,16 +1,24 @@
 import MainLayout from "../components/layouts/MainLayout";
 import HomepageHero from "../components/HomepageHero";
-import {useAppContext} from "../components/application/ContextWrapper";
+import {SiteSettingProvider} from "../utils/siteSettings";
 
-export default function Homepage(){
-	let context = useAppContext();
+export default function Homepage({siteTheme}){
 
 	return (
-		<MainLayout>
-			<HomepageHero siteTheme={context.siteTheme}/>
+		<MainLayout siteTheme={siteTheme}>
+			<HomepageHero siteTheme={siteTheme}/>
 
 			<h3>Hello world</h3>
 			<p>This is it</p>
 		</MainLayout>
 	)
+}
+
+export async function getStaticProps() {
+	return {
+		props: {
+			siteTheme: await SiteSettingProvider.getTheme()
+		},
+		revalidate: 30
+	}
 }

@@ -1,12 +1,6 @@
 import {AppProps} from "next/app"
-import {AppContext} from "../components/application/ContextWrapper";
+import "./../styles/main.css" //TODO Remove this
 
-export default function CoreApp({Component, pageProps}:AppProps){
-	return (
-		<>
-			<AppContext>
-				<Component {...pageProps}/>
-			</AppContext>
-		</>
-	)
+export default function App({Component, pageProps}:AppProps){
+	return <Component {...pageProps}/>
 }
