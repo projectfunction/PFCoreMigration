@@ -8,7 +8,7 @@ export default function Homepage({siteTheme}){
 		<MainLayout siteTheme={siteTheme}>
 			<HomepageHero siteTheme={siteTheme}/>
 
-			
+
 		</MainLayout>
 	)
 }
