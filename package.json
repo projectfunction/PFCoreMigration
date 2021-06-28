@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "next dev",
+    "test": "jest",
     "build": "tsc -p utils/tsconfig.json && next build",
     "start": "next start",
     "clean": "rm -rf node_modules"
@@ -13,14 +14,17 @@
   "license": "ISC",
   "devDependencies": {
     "@svgr/webpack": "^3.1.0",
+    "@types/jest": "^26.0.23",
     "@types/markdown-it": "^0.0.9",
     "@types/node": "^14.0.13",
     "@types/nodemailer": "^6.4.0",
     "@types/react": "^17.0.11",
     "@types/superagent": "^4.1.7",
     "concat": "^1.0.3",
+    "jest": "^27.0.5",
     "npm-run-all": "^4.1.5",
-    "postcss-cli": "^7.1.1"
+    "postcss-cli": "^7.1.1",
+    "ts-jest": "^27.0.3"
   },
   "dependencies": {
     "date-fns": "^2.22.1",
@@ -42,5 +46,9 @@
     "last 1 version",
     "> 1%",
     "IE 10"
-  ]
+  ],
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  }
 }

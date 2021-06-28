@@ -1,11 +1,11 @@
 export function isEmailFormatValid(email:string){
-    let emailRegexPattern = /[a-zA-Z0-9-_]+(?:[.a-zA-Z0-9-_]*[a-zA-Z0-9-_]+)*@[a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)*/gm;
+    let emailRegexPattern = /^[a-zA-Z0-9-_]+(?:\.?[a-zA-Z0-9-_]+)*(?:\+[a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_])*)*@[a-zA-Z0-9-_]+\.[a-zA-Z0-9-_]+/gm;
     return emailRegexPattern.test(email.trim());
 }
 
 export function isNothing(value:any){
-    if (isNullOrUndefined(value)) return true;
-    return value === false;
+    if (isEmptyOrUndefined(value)) return true;
+    return value === false || value === 0;
 }
 
 export function isNullOrUndefined(value:any){
@@ -15,12 +15,12 @@ export function isNullOrUndefined(value:any){
 
 export function isEmptyOrUndefined(value:any){
     if ((typeof value === "string" || value instanceof String) && value.trim() === "") return true;
+    if (value?.length === 0) return true;
+    try{
+        let val = JSON.stringify(value);
+        if (val === "{}") return true;
+    } catch {}
     return isNullOrUndefined(value);
-}
-
-export function isVoid(value:any){
-    if (value === void 0) return true;
-    return value === null;
 }
 
 export function getReadTime(content:string, unitDefinition={

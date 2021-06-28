@@ -8,8 +8,7 @@ export default function Homepage({siteTheme}){
 		<MainLayout siteTheme={siteTheme}>
 			<HomepageHero siteTheme={siteTheme}/>
 
-			<h3>Hello world</h3>
-			<p>This is it</p>
+			
 		</MainLayout>
 	)
 }

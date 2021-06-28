@@ -10,7 +10,7 @@ export function dateParse(dateString:string, format:string="DD MM YYYY", failQui
 
 	let dateStructure = {
 		day: (new Date()).getUTCDate(),
-		month: (new Date()).getMonth(),
+		month: (new Date()).getUTCMonth(),
 		year: (new Date()).getUTCFullYear(),
 		hour: 0,
 		minutes: 0,
@@ -60,6 +60,7 @@ export function dateFormat(date:Date, format:string="DD MM YYYY"){
 		.replace(/(DD)/gm, date.getUTCDate().toString().padStart(2, "0"))
 		.replace(/(MM)/gm, (date.getUTCMonth() + 1).toString().padStart(2, "0"))
 		.replace(/(YYYY)/gm, date.getUTCFullYear().toString())
+		.replace(/(YY)/gm, date.getUTCFullYear().toString().substr(2))
 		.replace(/(D)/gm, date.getUTCDate().toString())
 		.replace(/(M)/gm, (date.getUTCMonth() + 1).toString())
 
