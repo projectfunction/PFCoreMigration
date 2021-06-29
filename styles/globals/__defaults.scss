@@ -1,0 +1,14 @@
+@import "../theme/_theme_vars";
+
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	background: var(--lm-white0-black2);
+	padding: 0;
+	margin: 0;
+}

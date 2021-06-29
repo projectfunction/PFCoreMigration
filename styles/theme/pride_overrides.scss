@@ -1,0 +1,55 @@
+nav[data-theme="pride"] ul > li.logo-container > a img {
+	border-radius: 50%;
+	box-shadow: 0 0;
+	transition: box-shadow 0.3s;
+}
+nav[data-theme="pride"] ul > li.logo-container > a:hover {
+	animation-name: pride_fontColor;
+	animation-direction: alternate;
+	animation-duration: 6s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+}
+nav[data-theme="pride"] ul > li.logo-container > a:hover img {
+	animation-name: pride_boxShadow;
+	animation-direction: alternate;
+	animation-duration: 6s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+}
+nav[data-theme="pride"]::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	backdrop-filter: blur(3px);
+	z-index: -1;
+}
+nav[data-theme="pride"]::before {
+	content: '';
+	position: absolute;
+	top: -0.5px;
+	width: 100%;
+	height: 0;
+	border-width: 1px;
+	border-style: solid;
+	border-image: linear-gradient(to right, #c7332e, #cd5b1b, #f7dd22, #68ab6a, #63a8de, #723788, #592880, #865f3b, #3a3a39, #da91b9, #f6f6f6, #98ccf2) 10 / 1px 0 0;
+	z-index: -2;
+}
+.hero[data-theme="pride"] .marginalised::after {
+	transition: opacity 1s;
+}
+.hero[data-theme="pride"] .marginalised:hover {
+	animation-name: pride_fontColor;
+	animation-direction: alternate;
+	animation-duration: 18s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+}
+.hero[data-theme="pride"] .marginalised:hover::after {
+	opacity: 0;
+}
+footer[data-theme="pride"] {
+	border-width: 3px;
+	border-style: solid;
+	border-image: linear-gradient(to right, #c7332e, #cd5b1b, #f7dd22, #68ab6a, #63a8de, #723788, #592880, #865f3b, #3a3a39, #da91b9, #f6f6f6, #98ccf2) 10 / 2px 0 0;
+}

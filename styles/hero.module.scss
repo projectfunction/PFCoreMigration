@@ -1,0 +1,124 @@
+@import "globals/_prefs";
+@import "globals/_vars";
+
+.hero {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem 2rem;
+	
+	//background: linear-gradient(145deg, var(--special-community), deepskyblue);
+	background-size: cover;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	-o-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	
+	@media (querySize("mobile:large")) {
+		min-height: 80vh;
+		background-attachment: scroll;
+	}
+	@media (querySize("tablet")) {
+		min-height: 100vh;
+	}
+	@media (prefers-color-scheme: dark) {
+		background-color: var(--lm-white1-black1);
+		background-image: url("/public/core/images/dark_hero_bg.jpg");
+		background-repeat: no-repeat;
+		background-size: auto 100%;
+		background-position: center bottom;
+		background-attachment: fixed;
+	}
+	@media (querySize("desktop")) and (prefers-color-scheme: dark) {
+		background-size: 1280px auto;
+	}
+	
+	& > div {
+		position: relative;
+		width: 100%;
+		max-width: $screen_tablet;
+		color: var(--lm-black1-white0);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		
+		@media (querySize("mobile:large")) {
+			flex-direction: row;
+		}
+		@media (querySize("desktop:large")){
+			max-width: $screen_desktop;
+		}
+	}
+	
+}
+
+.textBlock {
+	width: 100%;
+	
+	h1 {
+		font-size: 3rem;
+		font-family: "Open Sans", sans-serif;
+		letter-spacing: 1px;
+		text-align: center;
+	}
+	
+	p {
+		font-family: "Open Sans", sans-serif;
+		font-size: 1.4rem;
+		font-weight: 300;
+		letter-spacing: 1.2px;
+		text-align: center;
+	}
+	
+	@media (querySize("mobile:large")) {
+		width: 60%;
+		
+		h1, p {
+			text-align: left
+		}
+		
+		p{
+			width: 80%;
+		}
+	}
+	
+	@media (querySize("tablet")){
+		width: 50%;
+	}
+	
+	@media (querySize("desktop:large")){
+		h1 {
+			font-size: 3.5rem;
+		}
+		
+		p {
+			font-size: 1.5rem;
+		}
+	}
+}
+
+.imageBlock {
+	position: relative;
+	color: $black-2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin-top: 3rem;
+	
+	svg {
+		width: 100%;
+	}
+
+	@media (querySize("mobile:large")){
+		margin-top: 0;
+		width: 40%;
+	}
+	
+	@media (querySize("tablet")) {
+		width: 50%;
+	}
+	
+}

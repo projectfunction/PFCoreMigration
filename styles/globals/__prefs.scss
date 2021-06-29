@@ -1,11 +1,28 @@
 
-$screen : (
-	"mobile_small": "max-width: 375px",
-	"mobile": "max-width: 500px",
-	"mobile_medium": "max-width: 600px",
-	"mobile_large": "max-width: 800px",
-	"large-tablet": "max-width: 1120px",
-	"tablet": "max-width: 1048px",
-	"desktop": "max-width: 1280px",
-	"largest": "min-width: 1270px"
+$screen_tablet : 1048px;
+$screen_desktop : 1280px;
+$screen_tablet : 1048px;
+$screen_mobile: 500px;
+
+$screen_mobile_small: 375px;
+$screen_mobile_medium: 600px;
+$screen_mobile_large: 800px;
+
+$screen_tablet_large: 1120px;
+
+$screen_desktop_large : 1460px;
+
+$screen_query : (
+	"mobile": "min-width: 490px",
+	"mobile:medium": "min-width: 590px",
+	"mobile:large": "min-width: 790px",
+	
+	"tablet": "min-width: 1040px",
+	"tablet:large": "min-width: 1110px",
+	"desktop": "min-width: 1270px",
+	"desktop:large": "min-width: 1450px"
 );
+
+@function querySize($size) {
+	@return map-get($screen_query, $size);
+}
