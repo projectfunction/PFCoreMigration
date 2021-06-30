@@ -1,6 +1,7 @@
 import {ReactNode} from "react";
 import Head from "next/head";
 import Footer from "../Footer";
+import Nav from "../Nav";
 
 export type LayoutProps = {
 	children: ReactNode,
@@ -49,6 +50,7 @@ export default function MainLayout({children, pageTitle, pageDescription, siteTh
 				{/* @ts-ignore */}
 				<meta name="theme-color" content="#0f0f0f" media={"(prefers-color-scheme: dark)"}/>
 			</Head>
+			<Nav siteTheme={siteTheme}/>
 
 			{children}
 

@@ -1,16 +1,131 @@
-nav[data-theme="pride"] ul > li.logo-container > a img {
+@keyframes pride_boxShadow {
+	0% {
+		box-shadow: 0 0 5px 0 #c7332e;
+	}
+	8% {
+		box-shadow: 0 0 5px 0 #cd5b1b;
+	}
+	16% {
+		box-shadow: 0 0 5px 0 #f7dd22;
+	}
+	24% {
+		box-shadow: 0 0 5px 0 #68ab6a;
+	}
+	32% {
+		box-shadow: 0 0 5px 0 #63a8de;
+	}
+	40% {
+		box-shadow: 0 0 5px 0 #723788;
+	}
+	48% {
+		box-shadow: 0 0 5px 0 #592880;
+	}
+	56% {
+		box-shadow: 0 0 5px 0 #865f3b;
+	}
+	64% {
+		box-shadow: 0 0 5px 0 #3a3a39;
+	}
+	72% {
+		box-shadow: 0 0 5px 0 #da91b9;
+	}
+	80% {
+		box-shadow: 0 0 5px 0 #f6f6f6;
+	}
+	88% {
+		box-shadow: 0 0 5px 0 #98ccf2;
+	}
+}
+@keyframes pride_dropShadow {
+	0% {
+		filter: drop-shadow(0 0 5px #c7332e);
+	}
+	8% {
+		filter: drop-shadow(0 0 5px #cd5b1b);
+	}
+	16% {
+		filter: drop-shadow(0 0 5px #f7dd22);
+	}
+	24% {
+		filter: drop-shadow(0 0 5px #68ab6a);
+	}
+	32% {
+		filter: drop-shadow(0 0 5px #63a8de);
+	}
+	40% {
+		filter: drop-shadow(0 0 5px #723788);
+	}
+	48% {
+		filter: drop-shadow(0 0 5px #592880);
+	}
+	56% {
+		filter: drop-shadow(0 0 5px #865f3b);
+	}
+	64% {
+		filter: drop-shadow(0 0 5px #3a3a39);
+	}
+	72% {
+		filter: drop-shadow(0 0 5px #da91b9);
+	}
+	80% {
+		filter: drop-shadow(0 0 5px #f6f6f6);
+	}
+	88% {
+		filter: drop-shadow(0 0 5px #98ccf2);
+	}
+}
+@keyframes pride_fontColor {
+	0% {
+		color: #c7332e;
+	}
+	8% {
+		color: #cd5b1b;
+	}
+	16% {
+		color: #f7dd22;
+	}
+	24% {
+		color: #68ab6a;
+	}
+	32% {
+		color: #63a8de;
+	}
+	40% {
+		color: #723788;
+	}
+	48% {
+		color: #592880;
+	}
+	56% {
+		color: #865f3b;
+	}
+	64% {
+		color: #3a3a39;
+	}
+	72% {
+		color: #da91b9;
+	}
+	80% {
+		color: #f6f6f6;
+	}
+	88% {
+		color: #98ccf2;
+	}
+}
+
+nav[data-theme="pride"] ul > li:first-of-type > a img {
 	border-radius: 50%;
 	box-shadow: 0 0;
 	transition: box-shadow 0.3s;
 }
-nav[data-theme="pride"] ul > li.logo-container > a:hover {
+nav[data-theme="pride"] ul > li:first-of-type > a:hover {
 	animation-name: pride_fontColor;
 	animation-direction: alternate;
 	animation-duration: 6s;
 	animation-fill-mode: forwards;
 	animation-iteration-count: infinite;
 }
-nav[data-theme="pride"] ul > li.logo-container > a:hover img {
+nav[data-theme="pride"] ul > li:first-of-type > a:hover img {
 	animation-name: pride_boxShadow;
 	animation-direction: alternate;
 	animation-duration: 6s;
@@ -23,6 +138,7 @@ nav[data-theme="pride"]::after {
 	inset: 0;
 	backdrop-filter: blur(3px);
 	z-index: -1;
+	left: 0;
 }
 nav[data-theme="pride"]::before {
 	content: '';
@@ -34,19 +150,7 @@ nav[data-theme="pride"]::before {
 	border-style: solid;
 	border-image: linear-gradient(to right, #c7332e, #cd5b1b, #f7dd22, #68ab6a, #63a8de, #723788, #592880, #865f3b, #3a3a39, #da91b9, #f6f6f6, #98ccf2) 10 / 1px 0 0;
 	z-index: -2;
-}
-.hero[data-theme="pride"] .marginalised::after {
-	transition: opacity 1s;
-}
-.hero[data-theme="pride"] .marginalised:hover {
-	animation-name: pride_fontColor;
-	animation-direction: alternate;
-	animation-duration: 18s;
-	animation-fill-mode: forwards;
-	animation-iteration-count: infinite;
-}
-.hero[data-theme="pride"] .marginalised:hover::after {
-	opacity: 0;
+	left: 0;
 }
 footer[data-theme="pride"] {
 	border-width: 3px;

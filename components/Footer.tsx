@@ -3,10 +3,7 @@ import footerStyles from "../styles/footer.module.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {faDiscord, faInstagram, faLinkedin, faTwitter} from "@fortawesome/free-brands-svg-icons"
 import {faAt} from "@fortawesome/free-solid-svg-icons";
-
-type FooterProps = {
-	siteTheme?: string
-}
+import {FooterProps} from "../utils/reactHelper";
 
 export default function Footer({siteTheme}:FooterProps){
 	return (
