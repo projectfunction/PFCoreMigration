@@ -1,15 +1,15 @@
 import MainLayout from "../components/layouts/MainLayout";
-import HomepageHero from "../components/HomepageHero";
 import {SiteSettingProvider} from "../utils/siteSettings";
 import LandingHero from "../components/LandingHero";
+import JoinUpcoming from "../components/JoinUpcoming";
 
 export default function Homepage({siteTheme}){
 
 	return (
 		<MainLayout siteTheme={siteTheme}>
-			{/*<HomepageHero siteTheme={siteTheme}/>*/}
+			<LandingHero id={"hero"} siteTheme={siteTheme}/>
 
-			<LandingHero/>
+			<JoinUpcoming />
 		</MainLayout>
 	)
 }

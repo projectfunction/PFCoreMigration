@@ -1,9 +1,10 @@
 import heroStyle from "../styles/hero.module.scss";
 import pfCollabSvg from "./vectors/pf_collab.svg";
+import {propsWithTheme} from "../utils/reactHelper";
 
-export default function LandingHero({}){
+export default function LandingHero({id, siteTheme}:propsWithTheme){
 	return (
-		<section className={heroStyle.hero}>
+		<section className={heroStyle.hero} id={id} data-theme={siteTheme}>
 			<div>
 				<div className={heroStyle.textBlock}>
 					<h1>Discover your <br/> Development Skills</h1>

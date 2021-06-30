@@ -15,23 +15,25 @@
 	-o-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 	
-	@media (querySize("mobile:large")) {
-		min-height: 80vh;
-		background-attachment: scroll;
-	}
-	@media (querySize("tablet")) {
-		min-height: 100vh;
-	}
+	background-attachment: scroll;
+	
 	@media (prefers-color-scheme: dark) {
 		background-color: var(--lm-white1-black1);
 		background-image: url("/public/core/images/dark_hero_bg.jpg");
 		background-repeat: no-repeat;
 		background-size: auto 100%;
 		background-position: center bottom;
-		background-attachment: fixed;
+	}
+	
+	@media (querySize("mobile:large")) {
+		min-height: 80vh;
+	}
+	@media (querySize("tablet")) {
+		min-height: 100vh;
 	}
 	@media (querySize("desktop")) and (prefers-color-scheme: dark) {
 		background-size: 1280px auto;
+		background-attachment: fixed;
 	}
 	
 	& > div {

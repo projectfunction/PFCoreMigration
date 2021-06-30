@@ -1,7 +1,7 @@
-import * as React from "react";
 
-export type propsWithTheme<T> = {
-	siteTheme?: string
+export type propsWithTheme<T = any> = {
+	siteTheme?: string,
+	id?: string
 } & T
 
 export type NavProps = propsWithTheme<{}>

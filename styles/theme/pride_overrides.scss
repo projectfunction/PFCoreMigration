@@ -159,3 +159,18 @@ footer[data-theme="pride"] {
 	border-style: solid;
 	border-image: linear-gradient(to right, #c7332e, #cd5b1b, #f7dd22, #68ab6a, #63a8de, #723788, #592880, #865f3b, #3a3a39, #da91b9, #f6f6f6, #98ccf2) 10 / 2px 0 0;
 }
+
+#hero[data-theme="pride"] {
+	position: relative;
+	
+	&::after{
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		border-width: 3px;
+		border-style: solid;
+		border-image: linear-gradient(to right, #c7332e, #cd5b1b, #f7dd22, #68ab6a, #63a8de, #723788, #592880, #865f3b, #3a3a39, #da91b9, #f6f6f6, #98ccf2) 10 / 0 0 2px;
+	}
+}
