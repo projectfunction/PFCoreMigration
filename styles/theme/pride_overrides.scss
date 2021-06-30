@@ -118,7 +118,9 @@ nav[data-theme="pride"] ul > li:first-of-type > a img {
 	box-shadow: 0 0;
 	transition: box-shadow 0.3s;
 }
-nav[data-theme="pride"] ul > li:first-of-type > a:hover {
+nav[data-theme="pride"] ul > li:first-of-type > a:hover,
+nav[data-theme="pride"] ul > li:first-of-type > button:hover
+{
 	animation-name: pride_fontColor;
 	animation-direction: alternate;
 	animation-duration: 6s;

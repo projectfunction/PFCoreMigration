@@ -44,6 +44,9 @@ export default function Nav({siteTheme}:NavProps){
 						<a href="/">
 							{logoSvg()}
 						</a>
+						<button aria-label="toggle" onClick={()=>openSubMenu("-")}>
+							<FontAwesomeIcon icon={faBars}/>
+						</button>
 					</li>
 					<li><a href="/about">About us</a></li>
 					<NavItemSubMenu menuName={"Learn"} nameOfOpenSub={navState.openedSubMenu} onActive={openSubMenu}>
@@ -61,11 +64,6 @@ export default function Nav({siteTheme}:NavProps){
 						<li><a href="/impact/jobs">Jobs</a></li>
 						<li><a href="/impact/events">Events</a></li>
 					</NavItemSubMenu>
-					<li className="mobile-menu">
-						<button aria-label="toggle">
-							<FontAwesomeIcon icon={faBars}/>
-						</button>
-					</li>
 				</ul>
 			</nav>
 		</>

@@ -27,6 +27,7 @@
 	
 	& > ul {
 		display: flex;
+		flex-direction: column;
 		list-style: none;
 		margin: 0 auto;
 		width: 100%;
@@ -35,15 +36,21 @@
 		height: 3.125rem;
 		transition: max-width 0.3s;
 		
+		@media (querySize("mobile:medium")) {
+			flex-direction: row;
+		}
+		
 		@media (querySize("desktop:large")){
 			max-width: $screen_desktop;
 		}
 		
 		& > li {
-			display: inline-block;
 			vertical-align: middle;
-			margin-right: 16px;
-			padding-right: 0.25rem;
+			
+			@media (querySize("mobile:medium")) {
+				margin-right: 16px;
+				padding-right: 0.25rem;
+			}
 			
 			& a,
 			& > span {
@@ -65,10 +72,17 @@
 
 .navOpen{
 	border-color: var(--lm-black1-white0);
-	height: 4.75 * 3.125rem;
+	height: 100vh;
+	
+	@media (querySize("mobile:medium")) {
+		height: 4.75 * 3.125rem;
+	}
 }
 
 .logoContainer {
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-between;
 	
 	svg {
 		height: calc(2.5rem - 10px);
@@ -80,25 +94,66 @@
 		pointer-events: none
 	}
 	
+	a {
+		display: inline-flex;
+	}
+	
+	button {
+		background: transparent;
+		border: none;
+		color: var(--lm-black1-white0);
+		padding: 0;
+		width: 44px;
+		height: 44px;
+		font-size: 1.4rem;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		
+		@media (querySize("mobile:medium")) {
+			display: none;
+		}
+		
+		& > svg {
+			width: 1em;
+			height: 1em;
+		}
+	}
+	
 }
 
 .subMenu,
 .subMenuOpen {
-	position: absolute;
+	position: relative;
 	width: 200px;
 	list-style: none;
 	margin: 0;
 	padding: 0;
 	opacity: 0;
 	pointer-events: none;
+	max-height: 0;
 	transition: all 0.3s;
+	
+	@media (querySize("mobile:medium")) {
+		position: absolute;
+		max-height: 999px;
+	}
 	
 	& > li:first-of-type {
 		display: none;
+	}
+	
+	& > li {
+		margin-left: 1rem;
+		
+		@media (querySize("mobile:medium")) {
+			margin-left: 0;
+		}
 	}
 }
 
 .subMenuOpen {
 	opacity: 1;
 	pointer-events: auto;
+	max-height: 999px;
 }
