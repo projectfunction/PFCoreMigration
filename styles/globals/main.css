@@ -69,7 +69,7 @@
 	--special-community: #6a64e8;
 	--special-brand: #025f82;
 	--special-collab: #b30362;
-	--border-radius: 10px;
+	--border-radius-big: 10px;
 }
 @media (prefers-color-scheme: dark) {
 	:root {
@@ -766,7 +766,7 @@ table.spons-table tr:last-child td:nth-child(1) {
 	background-repeat: no-repeat;
 }
 .btn {
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-big);
 	opacity: 1;
 	color: white;
 	background: var(--special-brand);
@@ -804,7 +804,7 @@ table.spons-table tr:last-child td:nth-child(1) {
 	background: #EFEFEF;
 }
 .info-card {
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-big);
 	background: var(--lm-white1-black1);
 	border: 1px solid var(--special-brand);
 	padding: 32px;
@@ -906,7 +906,7 @@ table.spons-table tr:last-child td:nth-child(1) {
 	padding: 32px;
 	background: var(--lm-white0-black1);
 	opacity: 1;
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-big);
 	text-decoration: none;
 	transition: all 1s;
 	max-width: 700px;
@@ -1664,7 +1664,7 @@ body section.cta {
 .patreon-cta-outer .patreon-cta {
 	color: var(--special-patreon);
 	border: solid 2px var(--special-patreon);
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-big);
 	max-width: 650px;
 	text-align: center;
 	margin: 70px auto 30px;
@@ -1723,7 +1723,7 @@ body section.cta {
 }
 .patreon-block .mosaic-grid--item {
 	width: 100%;
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-big);
 }
 .patreon-block .mosaic-grid--item:nth-of-type(1) {
 	grid-area: img1;
@@ -1748,7 +1748,7 @@ body section.cta {
 	font-weight: normal;
 	font-size: 18px;
 	line-height: 25px;
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-big);
 }
 .patreon-block .mosaic-grid--item:nth-of-type(4) blockquote span {
 	margin-top: 35px;
@@ -1761,7 +1761,7 @@ body section.cta {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-big);
 }
 @media all and (-ms-high-contrast: none) {
 	.patreon-block .mosaic-grid {
@@ -1858,7 +1858,7 @@ body section.cta {
 .course-info-block .container .course-info-card {
 	background-color: var(--lm-white1-black1);
 	padding: 80px 80px 80px;
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-big);
 }
 .course-info-block .container .course-info-card .info-row {
 	width: 100%;
@@ -1978,7 +1978,7 @@ body section.cta {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius-big);
 	overflow: hidden;
 	border: 1px solid var(--lm-black4-white1);
 }
@@ -1992,7 +1992,7 @@ body section.cta {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	border-radius: 0 0 var(--border-radius) var(--border-radius);
+	border-radius: 0 0 var(--border-radius-big) var(--border-radius-big);
 	padding: 15px;
 }
 .latest-posts-block .notes-card div.notes-card__container-text h5 {

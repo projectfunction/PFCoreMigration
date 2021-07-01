@@ -1,0 +1,52 @@
+
+.chroma,
+.chromaCollab {
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 113%;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+	
+	span {
+		display: inline-block;
+		margin: 0 auto;
+		background-color: var(--special-brand);
+		background-image: linear-gradient(45deg, var(--special-brand), var(--special-community));
+		background-size: 100%;
+		background-repeat: repeat;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		-moz-background-clip: #{"text"};
+		-moz-text-fill-color: transparent;
+	}
+}
+
+.chromaCollab {
+	span {
+		background-color: var(--special-brand);
+		background-image: linear-gradient(45deg, var(--special-brand), var(--special-collab));
+	}
+}
+
+.chromaHeadingSection{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: var(--lm-black1-white0);
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+	margin-bottom: 2rem;
+	
+	h2 {
+		order: 1;
+		font-size: 2.45rem;
+		margin-top: 0;
+	}
+	
+	p {
+		order: 0
+	}
+}

@@ -54,3 +54,8 @@ export function cyrb53(str:string, seed:number = 0) {
 export function randomString(len:number=18){
     return [...Array(len)].map(_=>(~~(Math.random()*36)).toString(36)).join('');
 }
+
+export function titleCase(str:string){
+    if (str.length < 1) return str;
+    return str[0].toUpperCase() + str.substr(1);
+}

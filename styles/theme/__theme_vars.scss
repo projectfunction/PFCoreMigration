@@ -44,7 +44,8 @@
 	--special-brand: #025f82; //(brand-color)
 	--special-collab: darken($collab-color, 20%); // (collab-color)
 	
-	--border-radius: 10px;
+	--border-radius-big: 6px;
+	--border-radius: 2.4px;
 	
 	@media (prefers-color-scheme: dark) {
 		--lm-white0-black3: #{$black-3};
