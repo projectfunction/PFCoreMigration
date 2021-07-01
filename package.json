@@ -10,7 +10,7 @@
     "start": "next start",
     "clean": "rm -rf node_modules"
   },
-  "author": "Dwayne",
+  "author": "Daryl Cecile",
   "license": "ISC",
   "devDependencies": {
     "@svgr/webpack": "^3.1.0",
