@@ -49,6 +49,7 @@ export default function MainLayout({children, pageTitle, pageDescription, siteTh
 				<meta name="theme-color" content="#ffffff" />
 				{/* @ts-ignore */}
 				<meta name="theme-color" content="#0f0f0f" media={"(prefers-color-scheme: dark)"}/>
+				<script src="/api/gascript"/>
 			</Head>
 			<Nav siteTheme={siteTheme}/>
 

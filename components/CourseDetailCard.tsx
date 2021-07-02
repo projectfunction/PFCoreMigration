@@ -12,14 +12,6 @@ export type CourseDetail = {
 	signupLink?: string
 }
 
-export function CourseDetailCardGrid({children}){
-	return (
-		<div className={courseDetailStyles.grid}>
-			{children}
-		</div>
-	)
-}
-
 export function CourseDetailCard(props:CourseDetail){
 	return (
 		<div className={courseDetailStyles.card}>

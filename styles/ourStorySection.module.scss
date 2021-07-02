@@ -1,0 +1,34 @@
+@import "globals/_prefs";
+@import "globals/_vars";
+
+.section {
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 2rem;
+	
+	& > div {
+		width: 100%;
+		max-width: $screen_tablet;
+		
+		@media (querySize("desktop:large")){
+			max-width: $screen_desktop;
+		}
+	}
+}
+
+.content {
+	& > p {
+		color: var(--lm-black2-white1);
+		font-family: 'Open Sans', sans-serif;
+		text-align: center;
+		max-width: 800px;
+		margin: 0 auto 70px;
+		line-height: 1.5;
+		font-weight: 200;
+		letter-spacing: 0.2px;
+		font-size: 1.125rem;
+	}
+}

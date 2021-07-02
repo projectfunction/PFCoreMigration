@@ -3,6 +3,7 @@ import {SiteSettingProvider} from "../utils/siteSettings";
 import LandingHero from "../components/LandingHero";
 import JoinSection from "../components/JoinSection";
 import CommitmentSection from "../components/CommitmentSection";
+import OurStorySection from "../components/OurStorySection";
 
 export default function Homepage({siteTheme}){
 
@@ -11,6 +12,7 @@ export default function Homepage({siteTheme}){
 			<LandingHero id={"hero"} siteTheme={siteTheme}/>
 			<JoinSection />
 			<CommitmentSection />
+			<OurStorySection />
 		</MainLayout>
 	)
 }

@@ -1,39 +1,10 @@
 @import "globals/_prefs";
 @import "globals/_vars";
 
-.grid {
-	display: flex;
-	flex-direction: column;
-	column-gap: 2rem;
-	row-gap: 2rem;
-	margin-bottom: 2rem;
-	
-	@media (querySize("mobile:medium")) {
-		flex-direction: row;
-		align-items: center;
-		flex-wrap: wrap;
-		justify-content: center;
-	}
-	
-	@media (querySize("tablet")) {
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-		flex-wrap: nowrap;
-		row-gap: 1rem;
-		column-gap: 1rem;
-	}
-	
-	@media (querySize("desktop:large")) {
-		column-gap: 3rem;
-		row-gap: 3rem;
-	}
-}
-
 .card {
 	display: flex;
 	flex-direction: column;
-	width: 100%;
+	
 	background: white;
 	position: relative;
 	
@@ -41,7 +12,6 @@
 	background: var(--lm-white1-black1);
 	border: 1px solid transparent;
 	padding: 32px;
-	flex: 1;
 	overflow: hidden;
 	font-family: "Open Sans", sans-serif;
 	transition: all .3s;

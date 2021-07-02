@@ -1,5 +1,6 @@
 import joinUpcomingStyle from "./../styles/joinUpcoming.module.scss"
-import {CourseDetail, CourseDetailCard, CourseDetailCardGrid} from "./CourseDetailCard";
+import {CourseDetail, CourseDetailCard} from "./CourseDetailCard";
+import Grid from "./Grid"
 import {useEffect, useState} from "react";
 import {dateParse} from "../utils/dateHelper";
 
@@ -44,11 +45,11 @@ export default function JoinSection({}){
 					Join a wave and experience <strong><em>not</em></strong> learning alone.</p>
 			</div>
 
-			<CourseDetailCardGrid>
-				{courses.map(courseInfo => {
-					return <CourseDetailCard {...courseInfo}/>
+			<Grid>
+				{courses.map((courseInfo,i) => {
+					return <CourseDetailCard {...courseInfo} key={`course-detail-${i}`}/>
 				})}
-			</CourseDetailCardGrid>
+			</Grid>
 		</section>
 	)
 }

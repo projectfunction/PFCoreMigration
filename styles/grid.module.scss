@@ -1,0 +1,46 @@
+@import "globals/_prefs";
+@import "globals/_vars";
+
+.grid {
+	display: flex;
+	flex-direction: column;
+	column-gap: 2rem;
+	row-gap: 2rem;
+	margin-bottom: 2rem;
+	
+	@media (querySize("mobile:medium")) {
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	
+	@media (querySize("tablet")) {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: nowrap;
+		row-gap: 1rem;
+		column-gap: 1rem;
+	}
+	
+	@media (querySize("desktop:large")) {
+		column-gap: 3rem;
+		row-gap: 3rem;
+	}
+	
+	& > div {
+		width: 100%;
+		flex: 1;
+		
+		@media (querySize("mobile:medium")) {
+			width: 30%;
+			min-width: 300px;
+		}
+		
+		@media (querySize("tablet")) {
+			min-width: 0;
+			width: 100%;
+		}
+	}
+}
