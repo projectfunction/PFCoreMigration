@@ -1,0 +1,19 @@
+@import "globals/_prefs";
+@import "globals/_vars";
+
+.containerSection {
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	
+	& > * {
+		width: 100%;
+		max-width: $screen_tablet;
+		
+		@media (querySize("desktop:large")){
+			max-width: $screen_desktop;
+		}
+	}
+}

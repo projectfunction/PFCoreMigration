@@ -1,5 +1,4 @@
 import MainLayout from "../components/layouts/MainLayout";
-import {SiteSettingProvider} from "../utils/siteSettings";
 import LandingHero from "../components/LandingHero";
 import JoinSection from "../components/JoinSection";
 import CommitmentSection from "../components/CommitmentSection";

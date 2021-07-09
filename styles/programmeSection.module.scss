@@ -3,8 +3,6 @@
 @import "globals/_reusables";
 
 .section {
-	@extend .containerSection;
-	
 	background: var(--lm-white1-black1);
 	min-height: 68vh;
 	padding: 2rem;

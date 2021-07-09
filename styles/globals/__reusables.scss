@@ -1,20 +1,4 @@
 
-.containerSection {
-	display: flex;
-	position: relative;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	
-	& > div {
-		width: 100%;
-		max-width: $screen_tablet;
-		
-		@media (querySize("desktop:large")){
-			max-width: $screen_desktop;
-		}
-	}
-}
 
 .smoothShadow {
 	box-shadow:

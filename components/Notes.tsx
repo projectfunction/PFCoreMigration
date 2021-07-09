@@ -3,6 +3,7 @@ import useSWR from "swr";
 import noteStyles from "./../styles/notes.module.scss"
 import Grid from "./Grid";
 import {useState} from "react";
+import ContentContainer from "./ContentContainer";
 
 export function NoteCard({slug, coverImage, category, name, summary, createdBy, publishDate}){
 	return (
@@ -45,7 +46,7 @@ export function NotesCTA(){
 	}
 
 	return isLoading ? null : (
-		<section className={noteStyles.section}>
+		<ContentContainer className={noteStyles.section}>
 
 				<Grid>
 					{blogPosts.splice(0,2).map((b, i) => {
@@ -81,6 +82,6 @@ export function NotesCTA(){
 					</div>
 				</Grid>
 
-		</section>
+		</ContentContainer>
 	)
 }

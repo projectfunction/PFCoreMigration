@@ -1,31 +1,16 @@
 import MainLayout from "../components/layouts/MainLayout";
-import LandingHero from "../components/LandingHero";
-import JoinSection from "../components/JoinSection";
-import CommitmentSection from "../components/CommitmentSection";
-import OurStorySection from "../components/OurStorySection";
-import ProgrammeSection from "../components/ProgrammeSection";
-import {NotesCTA} from "../components/Notes";
-import {SiteSettingProvider} from "../utils/siteSettings";
+import {useTheme} from "../components/ThemeContextProvider";
+import SimpleArticle from "../components/SimpleArticle";
+import ContentContainer from "../components/ContentContainer";
 
-export default function About({siteTheme}){
+export default function About(){
+	let siteTheme = useTheme();
 
 	return (
 		<MainLayout siteTheme={siteTheme}>
-			<LandingHero id={"hero"} siteTheme={siteTheme}/>
-			<JoinSection />
-			<CommitmentSection />
-			<OurStorySection />
-			<ProgrammeSection />
-			<NotesCTA />
+			<ContentContainer>
+				<SimpleArticle title={"ABOUT US: WHO WE ARE"}/>
+			</ContentContainer>
 		</MainLayout>
 	)
-}
-
-export async function getStaticProps() {
-	return {
-		props: {
-			siteTheme: await SiteSettingProvider.getTheme()
-		},
-		revalidate: 30
-	}
 }

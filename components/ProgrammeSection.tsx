@@ -3,11 +3,12 @@ import accessForAllSvg from "./vectors/access_for_all_logo.svg"
 import afterCareSvg from "./vectors/after_care_logo.svg"
 import {ChromaTextHeading} from "./ChromaText";
 import Grid, {GridItem} from "./Grid";
+import ContentContainer from "./ContentContainer";
 
 
 export default function ProgrammeSection({}){
 	return (
-		<section className={programmeSectionStyles.section}>
+		<ContentContainer className={programmeSectionStyles.section}>
 			<ChromaTextHeading type={"collaboration"} chromaTextContent={"Our Community"}>
 				PF Programmes
 			</ChromaTextHeading>
@@ -19,11 +20,11 @@ export default function ProgrammeSection({}){
 					</div>
 					<br/>
 					<br/>
-                    <p>
-	                    All learners, regardless of their race, gender identity, sexual orientation, disability,
-	                    religion, or financial position, should have access to the resources they need to take
-	                    part in our courses.
-                    </p>
+					<p>
+						All learners, regardless of their race, gender identity, sexual orientation, disability,
+						religion, or financial position, should have access to the resources they need to take
+						part in our courses.
+					</p>
 					<a href="/programmes/access-for-all" className={programmeSectionStyles.link}>Find out more</a>
 				</GridItem>
 
@@ -44,6 +45,6 @@ export default function ProgrammeSection({}){
 				</GridItem>
 
 			</Grid>
-		</section>
+		</ContentContainer>
 	)
 }
