@@ -2,6 +2,7 @@ import {dateFormat} from "../utils/dateHelper";
 import useSWR from "swr";
 import noteStyles from "./../styles/notes.module.scss"
 import Grid from "./Grid";
+import {useState} from "react";
 
 export function NoteCard({slug, coverImage, category, name, summary, createdBy, publishDate}){
 	return (
@@ -33,11 +34,17 @@ export function NoteCard({slug, coverImage, category, name, summary, createdBy, 
 }
 
 export function NotesCTA(){
-	const { data, error } = useSWR('/api/open/notes/list');
+	const [retries, setRetries] = useState(0);
+	const { data, error, revalidate } = useSWR('/api/open/notes/list');
 	const blogPosts = data ?? [];
 	const isLoading = !data && !error;
 
-	return (
+	if (!isLoading && !error && data.length < 3 && retries < 3){
+		revalidate().catch(console.error);
+		setRetries(r => r+1);
+	}
+
+	return isLoading ? null : (
 		<section className={noteStyles.section}>
 
 				<Grid>
