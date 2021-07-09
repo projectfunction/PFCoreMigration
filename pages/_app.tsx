@@ -10,4 +10,6 @@ import {ThemeContextProvider} from "../components/ThemeContextProvider";
 
 export default function App({Component, pageProps}:AppProps){
 	return <ThemeContextProvider>
+		<Component {...pageProps} />
+	</ThemeContextProvider>
 }
