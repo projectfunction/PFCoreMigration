@@ -25,6 +25,7 @@
 	--lm-black2-white1: #{$black-2}; //charcoal, gray (hero-title-color, subtitle-color, header-color)
 	--lm-white1-black2: #{$white-1}; //gray, charcoal (footer-color)
 	--lm-black1-white0: #{$black-1}; //soft-black, white (paragraph-color)
+	--lm-black1-white1: #{$black-1}; //soft-black, gray
 	
 	--lm-black4-white0: #{$black-4}; //dark-gray, white (link-btn-background)
 	--lm-white0-black4: #{$white-0}; //white, dark-gray (link-btn-foreground)
@@ -61,6 +62,7 @@
 		--lm-black2-white1: #{$white-1};
 		--lm-white1-black2: #{$black-2};
 		--lm-black1-white0: #{$white-0};
+		--lm-black1-white1: #{$white-1};
 		
 		--lm-black4-white0: #{$white-0};
 		--lm-white0-black4: #{$black-4};

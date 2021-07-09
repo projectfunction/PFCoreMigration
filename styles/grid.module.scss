@@ -10,14 +10,12 @@
 	
 	@media (querySize("mobile:medium")) {
 		flex-direction: row;
-		align-items: center;
 		flex-wrap: wrap;
 		justify-content: center;
 	}
 	
 	@media (querySize("tablet")) {
 		flex-direction: row;
-		align-items: center;
 		justify-content: space-between;
 		flex-wrap: nowrap;
 		row-gap: 1rem;
@@ -31,7 +29,6 @@
 	
 	& > div {
 		width: 100%;
-		flex: 1;
 		
 		@media (querySize("mobile:medium")) {
 			width: 30%;
@@ -42,5 +39,34 @@
 			min-width: 0;
 			width: 100%;
 		}
+	}
+}
+
+.centeredGrid{
+	@extend .grid;
+	align-items: center;
+}
+
+.gridItem {
+	color: var(--lm-black2-white1);
+	font-family: "Open Sans", sans-serif;
+	text-align: center;
+	position: relative;
+	
+	h3 {
+		font-size: 1.4rem;
+	}
+	
+	p {
+		letter-spacing: 1.1px;
+		max-width: 360px;
+		margin: 0 auto;
+	}
+	
+	& > svg {
+		width: 40%;
+		max-width: 180px;
+		margin: 0 auto;
+		height: auto;
 	}
 }

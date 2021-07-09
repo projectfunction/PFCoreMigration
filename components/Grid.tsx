@@ -1,8 +1,21 @@
 import gridStyles from "./../styles/grid.module.scss"
 
-export default function Grid({children}){
+export type GridProps = {
+	children,
+	isCentered?:boolean,
+}
+
+export default function Grid({children, isCentered}:GridProps){
 	return (
-		<div className={gridStyles.grid}>
+		<div className={isCentered ? gridStyles.centeredGrid : gridStyles.grid}>
+			{children}
+		</div>
+	)
+}
+
+export function GridItem({children}){
+	return (
+		<div className={gridStyles.gridItem}>
 			{children}
 		</div>
 	)

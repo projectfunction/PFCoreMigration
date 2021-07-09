@@ -4,6 +4,8 @@ import LandingHero from "../components/LandingHero";
 import JoinSection from "../components/JoinSection";
 import CommitmentSection from "../components/CommitmentSection";
 import OurStorySection from "../components/OurStorySection";
+import ProgrammeSection from "../components/ProgrammeSection";
+import {NotesCTA} from "../components/Notes";
 
 export default function Homepage({siteTheme}){
 
@@ -13,6 +15,8 @@ export default function Homepage({siteTheme}){
 			<JoinSection />
 			<CommitmentSection />
 			<OurStorySection />
+			<ProgrammeSection />
+			<NotesCTA />
 		</MainLayout>
 	)
 }

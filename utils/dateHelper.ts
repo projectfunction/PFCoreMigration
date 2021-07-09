@@ -53,7 +53,11 @@ export function dateParse(dateString:string, format:string="DD MM YYYY", failQui
 	return new Date(dateStructure.year, dateStructure.month, dateStructure.day, dateStructure.hour, dateStructure.minutes, dateStructure.seconds);
 }
 
-export function dateFormat(date:Date, format:string="DD MM YYYY"){
+export function dateFormat(date:string, format:string)
+export function dateFormat(date:Date, format:string)
+export function dateFormat(inputDate:Date|string, format:string="DD MM YYYY"){
+	let date:Date = typeof inputDate === "string" ? new Date(inputDate) : inputDate;
+
 	return format
 		.replace(/(MMMM)/gm, months[date.getUTCMonth()])
 		.replace(/(MMM)/gm, months[date.getUTCMonth()].substr(0, 3))
@@ -63,11 +67,14 @@ export function dateFormat(date:Date, format:string="DD MM YYYY"){
 		.replace(/(YY)/gm, date.getUTCFullYear().toString().substr(2))
 		.replace(/(D)/gm, date.getUTCDate().toString())
 		.replace(/(M)/gm, (date.getUTCMonth() + 1).toString())
+}
 
-		.replace(/(hh)/gm, date.getUTCHours().toString().padStart(2, "0"))
-		.replace(/(mm)/gm, date.getUTCMinutes().toString().padStart(2, "0"))
-		.replace(/(ss)/gm, date.getUTCSeconds().toString().padStart(2, "0"))
-		.replace(/(h)/gm, date.getUTCHours().toString())
-		.replace(/(m)/gm, date.getUTCMinutes().toString())
-		.replace(/(s)/gm, date.getUTCSeconds().toString())
+export function timeFormat(time:Date, format:string="hh:mm:ss"){
+	return format
+		.replace(/(hh)/gm, time.getUTCHours().toString().padStart(2, "0"))
+		.replace(/(mm)/gm, time.getUTCMinutes().toString().padStart(2, "0"))
+		.replace(/(ss)/gm, time.getUTCSeconds().toString().padStart(2, "0"))
+		.replace(/(h)/gm, time.getUTCHours().toString())
+		.replace(/(m)/gm, time.getUTCMinutes().toString())
+		.replace(/(s)/gm, time.getUTCSeconds().toString())
 }

@@ -1,4 +1,4 @@
-import {dateFormat, dateParse} from "../utils/dateHelper";
+import {dateFormat, dateParse, timeFormat} from "../utils/dateHelper";
 
 describe("dateParse", ()=>{
 
@@ -40,6 +40,8 @@ describe("dateFormat", ()=>{
 
 		let exampleDate = new Date(2020, 1, 19, 20,32, 0);
 
+		let exampleDate2 = new Date("2021-03-12T18:30:00.000Z");
+
 		expect(dateFormat(exampleDate, "DD MM YYYY")).toEqual("19 02 2020");
 		expect(dateFormat(exampleDate, "DD MMM YYYY")).toEqual("19 feb 2020");
 		expect(dateFormat(exampleDate, "DD M YYYY")).toEqual("19 2 2020");
@@ -48,8 +50,10 @@ describe("dateFormat", ()=>{
 		expect(dateFormat(exampleDate, "DD MMM YY")).toEqual("19 feb 20");
 		expect(dateFormat(exampleDate, "DD M YY")).toEqual("19 2 20");
 
-		expect(dateFormat(exampleDate, "hh:mm")).toEqual("20:32");
-		expect(dateFormat(exampleDate, "DD ss")).toEqual("19 00");
+		expect(timeFormat(exampleDate, "hh:mm")).toEqual("20:32");
+		expect(dateFormat(exampleDate, "DD")).toEqual("19");
+
+		expect(dateFormat(exampleDate2, "D MMM YYYY")).toEqual("12 mar 2021");
 
 	});
 

@@ -18,5 +18,13 @@ module.exports = {
 			],
 		});
 		return config;
-	}
+	},
+	async rewrites() {
+		return [
+			{
+				source: '/api/open/:path*',
+				destination: 'https://api.projectfunction.io/open/:path*',
+			},
+		]
+	},
 }

@@ -5,7 +5,7 @@ import {titleCase} from "../utils/convinienceHelper";
 
 export type CourseDetail = {
 	name: string,
-	applicationStatus: "Open" | "Opening Soon",
+	applicationStatus: "Open" | "Opening Soon" | "Closed",
 	location: "Remote/Online" | string,
 	duration: string,
 	startDate: Date,
