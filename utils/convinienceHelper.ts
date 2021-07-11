@@ -78,10 +78,12 @@ export type ClientIdBuilderOptions = {
 };
 
 export function calculateClientId(opt:ClientIdBuilderOptions){
+    let host = opt.host ?? opt.req.headers["host"] ?? "localhost:3000";
+
     let calculatedIp = !opt ? null : (opt.req.headers["x-forwarded-for"] || opt.req.socket.remoteAddress).toString();
     let ip = (opt.ipAddress ?? calculatedIp ?? "0.0.0.0").replace('::ffff:', '');
     let ua = opt.userAgent ?? opt.req.headers["user-agent"] ?? randomString(8);
-    let ho = opt.host ?? opt.req.headers["host"] ?? "projectfunction.io";
+    let ho = host != "localhost:3000" ? host : "api.projectfunction.io";
     let lg = opt.lang ?? opt.req.headers["accept-language"] ?? "en-US";
     let st = dateFormat(new Date(), "MMMM YYYY");
 

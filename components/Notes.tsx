@@ -4,7 +4,7 @@ import noteStyles from "./../styles/notes.module.scss"
 import Grid from "./Grid";
 import {useState} from "react";
 import ContentContainer from "./ContentContainer";
-import {when} from "../utils/reactHelper";
+import Image from "next/image"
 
 export type NoteCardProps = {
 	slug:string,
@@ -20,7 +20,9 @@ export function NoteCard({slug, coverImage, category, name, summary, createdBy, 
 	return (
 		<div className={noteStyles.notePreviewCard}>
 			<a href={"/notes/" + slug }>
-				<div className={noteStyles.notePreviewImage}> <img src={coverImage} alt="" loading="lazy" /> </div>
+				<div className={noteStyles.notePreviewImage}>
+					<img src={coverImage} alt="" loading="lazy" height={140.625} width={250}/>
+				</div>
 				<span>{category}</span>
 				<div className={noteStyles.notePreviewContent}>
 					<h5>{name}</h5>
@@ -30,7 +32,7 @@ export function NoteCard({slug, coverImage, category, name, summary, createdBy, 
 
 			{createdBy != undefined && publishDate != undefined ? (
 				<div className={noteStyles.notePreviewMeta}>
-					<img src={ createdBy.profilePicture } alt="" loading="lazy" />
+					<img src={ createdBy.profilePicture } alt="" loading="lazy" width={48} height={48}/>
 					<div>
 						<p>
 							<strong>{`${createdBy.firstName} ${createdBy.lastName}`.toUpperCase()}</strong>

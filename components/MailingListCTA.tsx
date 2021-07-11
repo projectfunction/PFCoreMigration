@@ -1,10 +1,37 @@
-import {useEffect, useState} from "react";
 import ContentContainer from "./ContentContainer";
 import mailingListStyle from "./../styles/mailingList.module.scss";
 import useSWR from "swr";
+import {useState} from "react";
 
 export default function MailingListCTA({listIdentifier}:{listIdentifier?:string}){
-	const { data, error, revalidate } = useSWR('/api/stat');
+	const { data, error, revalidate } = useSWR('/api/open/token', {
+		focusThrottleInterval: 3600_000 //1hr
+	});
+	const [ status, setStatus ] = useState({state:"new", errMessage:""});
+
+	const handleSubmit = async ev => {
+		ev.preventDefault();
+
+		const formData = new FormData(ev.target);
+
+		const result = await fetch("/api/open/mailing-list/join", {
+			body: formData,
+			method: "POST"
+		});
+
+		if ([200, 201, 202].indexOf(result.status) > -1){
+			setStatus({
+				state: "complete",
+				errMessage: ""
+			});
+		}
+		else{
+			setStatus({
+				state:"errored",
+				errMessage: await result.text()
+			});
+		}
+	};
 
 	return (
 		<ContentContainer className={mailingListStyle.container}>
@@ -15,16 +42,17 @@ export default function MailingListCTA({listIdentifier}:{listIdentifier?:string}
 
 					<p>Sign up to our mailing list to get updates about ProjectFunction, and our upcoming courses.</p>
 
-					<form className="cta-form" data-api="post:/mailing/join">
+					<form onSubmit={handleSubmit}>
 						<div className={mailingListStyle.formField}>
-							<input type="email" name="email" title="Email Address" />
+							<input type="email" name="email" title="Email Address" disabled={status.state == "complete"}/>
 							<input type="hidden" name="hpId" value={""}/>
-							<input type="hidden" name="client" value={data?.client} />
-							{listIdentifier ? <input type="hidden" name="listIdentifier" value={listIdentifier}/> : null}
-
-							<button type="submit">Subscribe</button>
+							<input type="hidden" name="client" value={data?.client ?? ""} />
+							{!!listIdentifier && <input type="hidden" name="listIdentifier" value={listIdentifier}/>}
+							{status.state != "complete" && <button type="submit">Subscribe</button>}
 						</div>
-						<div className={mailingListStyle.formError}/>
+						<div className={mailingListStyle.formError}>
+							{status.state === "errored" && <p>{status.errMessage}</p>}
+						</div>
 					</form>
 
 				</div>

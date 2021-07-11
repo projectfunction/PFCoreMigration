@@ -47,7 +47,7 @@ export default function TrustedByCTA(){
 			<ul className={sponsorStyle.patronList}>
 				{Object.entries<string>(sponsors).map(([name,url], index) => {
 					let isLast = Object.keys(sponsors).length -1 === index;
-					return <li><a target="_blank" rel="noopener" href={url}>{name}</a>{isLast ? '' : ' ○ '}</li>
+					return <li key={url}><a target="_blank" rel="noopener" href={url}>{name}</a>{isLast ? '' : ' ○ '}</li>
 				})}
 			</ul>
 			<br/>
