@@ -41,7 +41,7 @@ export default function Nav({siteTheme}:NavProps){
 			<nav ref={navRef} data-theme={siteTheme} className={navClassName} onBlurCapture={blurHandler}>
 				<ul>
 					<li className={navStyles.logoContainer}>
-						<a href="/">
+						<a href="/" title={"ProjectFunction"}>
 							{logoSvg()}
 						</a>
 						<button aria-label="toggle" onClick={()=>openSubMenu("-")}>
