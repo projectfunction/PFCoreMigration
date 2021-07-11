@@ -102,3 +102,23 @@ export function safeStringify(obj){
         };
     })());
 }
+
+export const throttle = (()=>{
+    let cache = {};
+
+    return (callback:any, timeframeMs:number)=>{
+        let key = callback.toString();
+        if (cache[key]) return;
+
+        cache[key] = setTimeout(()=>{
+            cache[key] = undefined;
+            callback();
+        }, timeframeMs);
+
+        return {
+            cancel: ()=>{
+                cache[key] = undefined;
+            }
+        }
+    }
+})();

@@ -24,29 +24,25 @@ export function NoteCard({slug, coverImage, category, name, summary, createdBy, 
 				<span>{category}</span>
 				<div className={noteStyles.notePreviewContent}>
 					<h5>{name}</h5>
-					{when(!!summary, ()=>{
-						return <p>{summary}</p>
-					})}
+					{summary != undefined ? <p>{summary}</p> : null}
 				</div>
 			</a>
 
-			{when(!!createdBy && !!publishDate, ()=>{
-				return (
-					<div className={noteStyles.notePreviewMeta}>
-						<img src={ createdBy.profilePicture } alt="" loading="lazy" />
-						<div>
-							<p>
-								<strong>{`${createdBy.firstName} ${createdBy.lastName}`.toUpperCase()}</strong>
-							</p>
-							<p>
-								<time dateTime={ dateFormat(new Date(publishDate),"DD/MM/YYYY") } data-r={publishDate}>
-									{ dateFormat(new Date(publishDate),"D MMM YYYY") }
-								</time>
-							</p>
-						</div>
+			{createdBy != undefined && publishDate != undefined ? (
+				<div className={noteStyles.notePreviewMeta}>
+					<img src={ createdBy.profilePicture } alt="" loading="lazy" />
+					<div>
+						<p>
+							<strong>{`${createdBy.firstName} ${createdBy.lastName}`.toUpperCase()}</strong>
+						</p>
+						<p>
+							<time dateTime={ dateFormat(new Date(publishDate),"DD/MM/YYYY") } data-r={publishDate}>
+								{ dateFormat(new Date(publishDate),"D MMM YYYY") }
+							</time>
+						</p>
 					</div>
-				)
-			})}
+				</div>
+			) : null}
         </div>
 	)
 }
@@ -65,7 +61,7 @@ export function NotesCTA(){
 	return isLoading ? null : (
 		<ContentContainer className={noteStyles.section}>
 
-				<Grid>
+				<Grid columnCount={3}>
 					{blogPosts.splice(0,2).map((b, i) => {
 						return (
 							<NoteCard

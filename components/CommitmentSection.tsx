@@ -13,7 +13,7 @@ export default function CommitmentSection({}){
 				A three-ingredient recipe
 			</ChromaTextHeading>
 
-			<Grid isCentered={true}>
+			<Grid isCentered={true} columnCount={3}>
 				<GridItem>
 					{beginnerFriendlySvg()}
 					<h3>Beginner-friendly sessions</h3>

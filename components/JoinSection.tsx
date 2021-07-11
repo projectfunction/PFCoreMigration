@@ -44,7 +44,7 @@ export default function JoinSection({}){
 					Join a wave and experience <strong><em>not</em></strong> learning alone.</p>
 			</div>
 
-			<Grid>
+			<Grid columnCount={3}>
 				{courses.map((courseInfo,i) => {
 					return <CourseDetailCard {...courseInfo} key={`course-detail-${i}`}/>
 				})}

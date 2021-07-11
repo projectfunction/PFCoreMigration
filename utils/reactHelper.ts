@@ -15,5 +15,6 @@ export function markup(content:string){
 }
 
 export function when(condition: boolean, handler: () => void){
-	if (condition) return handler;
+	if (!condition) return null;
+	return handler;
 }

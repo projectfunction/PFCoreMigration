@@ -13,7 +13,7 @@ export default function ProgrammeSection({}){
 				PF Programmes
 			</ChromaTextHeading>
 
-			<Grid isCentered={true}>
+			<Grid isCentered={true} columnCount={2}>
 				<GridItem>
 					<div className={programmeSectionStyles.previewIcon}>
 						{accessForAllSvg()}
@@ -28,7 +28,7 @@ export default function ProgrammeSection({}){
 					<a href="/programmes/access-for-all" className={programmeSectionStyles.link}>Find out more</a>
 				</GridItem>
 
-				<br/>
+
 
 				<GridItem>
 					<div className={programmeSectionStyles.previewIcon}>

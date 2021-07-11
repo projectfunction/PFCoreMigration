@@ -1,6 +1,6 @@
 import paperStyle from "./../styles/paperContent.module.scss"
 
-export default function SimplePaper({title, children}){
+export default function SimplePaper({title, children}:{title:string, children?}){
 	return (
 		<article className={paperStyle.paperContentBlock}>
 
