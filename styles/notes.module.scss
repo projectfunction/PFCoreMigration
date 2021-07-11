@@ -161,3 +161,21 @@
 		}
 	}
 }
+
+.noteGrid {
+	flex-wrap: wrap;
+	justify-content: space-between;
+	
+	//& > * {
+	//	max-width: 100%;
+	//
+	//	@media (querySize("mobile")) {
+	//		max-width: 45%;
+	//	}
+	//
+	//	@media (querySize("tablet")) {
+	//		max-width: 30%;
+	//	}
+	//}
+	
+}

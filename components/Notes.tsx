@@ -4,8 +4,19 @@ import noteStyles from "./../styles/notes.module.scss"
 import Grid from "./Grid";
 import {useState} from "react";
 import ContentContainer from "./ContentContainer";
+import {when} from "../utils/reactHelper";
 
-export function NoteCard({slug, coverImage, category, name, summary, createdBy, publishDate}){
+export type NoteCardProps = {
+	slug:string,
+	coverImage:string,
+	category:string,
+	name:string,
+	summary?:string,
+	createdBy?:any,
+	publishDate?:string
+};
+
+export function NoteCard({slug, coverImage, category, name, summary, createdBy, publishDate}:NoteCardProps){
 	return (
 		<div className={noteStyles.notePreviewCard}>
 			<a href={"/notes/" + slug }>
@@ -13,23 +24,29 @@ export function NoteCard({slug, coverImage, category, name, summary, createdBy, 
 				<span>{category}</span>
 				<div className={noteStyles.notePreviewContent}>
 					<h5>{name}</h5>
-					<p>{summary}</p>
+					{when(!!summary, ()=>{
+						return <p>{summary}</p>
+					})}
 				</div>
 			</a>
 
-			<div className={noteStyles.notePreviewMeta}>
-				<img src={ createdBy.profilePicture } alt="" loading="lazy" />
-				<div>
-					<p>
-						<strong>{`${createdBy.firstName} ${createdBy.lastName}`.toUpperCase()}</strong>
-					</p>
-					<p>
-						<time dateTime={ dateFormat(new Date(publishDate),"DD/MM/YYYY") } data-r={publishDate}>
-							{ dateFormat(new Date(publishDate),"D MMM YYYY") }
-						</time>
-					</p>
-				</div>
-			</div>
+			{when(!!createdBy && !!publishDate, ()=>{
+				return (
+					<div className={noteStyles.notePreviewMeta}>
+						<img src={ createdBy.profilePicture } alt="" loading="lazy" />
+						<div>
+							<p>
+								<strong>{`${createdBy.firstName} ${createdBy.lastName}`.toUpperCase()}</strong>
+							</p>
+							<p>
+								<time dateTime={ dateFormat(new Date(publishDate),"DD/MM/YYYY") } data-r={publishDate}>
+									{ dateFormat(new Date(publishDate),"D MMM YYYY") }
+								</time>
+							</p>
+						</div>
+					</div>
+				)
+			})}
         </div>
 	)
 }
