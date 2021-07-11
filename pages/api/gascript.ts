@@ -1,17 +1,9 @@
 import {NextApiRequest, NextApiResponse} from "next";
-import {cyrb53, randomString} from "../../utils/convinienceHelper";
-import {dateFormat} from "../../utils/dateHelper";
-
+import {calculateClientId} from "../../utils/convinienceHelper";
 
 export default async function(req:NextApiRequest, res:NextApiResponse){
 
-	let ip = req.headers["x-real-ip"] || "0.0.0.0";
-	let ua = req.headers["user-agent"] || randomString(8);
-	let ho = req.headers["host"] || "projectfunction.io";
-	let lg = req.headers["accept-language"] || "en-US";
-	let st = dateFormat(new Date(), "MMMM YYYY");
-
-	let clientId = cyrb53([ip, ho, ua, lg, st].join(";")).toString(16);
+	let clientId = calculateClientId({req});
 
 	let content = await fetch("https://www.google-analytics.com/analytics.js").then(o => o.text());
 

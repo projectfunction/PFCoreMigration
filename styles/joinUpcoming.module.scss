@@ -1,24 +1,6 @@
 @import "globals/_prefs";
 @import "globals/_vars";
 
-.joinSection {
-	display: flex;
-	position: relative;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 2rem;
-	
-	& > div {
-		width: 100%;
-		max-width: $screen_tablet;
-		
-		@media (querySize("desktop:large")){
-			max-width: $screen_desktop;
-		}
-	}
-}
-
 .header {
 	color: var(--lm-black1-white0);
 	font-family: 'Open Sans', sans-serif;

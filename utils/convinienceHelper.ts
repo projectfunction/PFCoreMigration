@@ -1,3 +1,6 @@
+import {dateFormat} from "./dateHelper";
+import {NextApiRequest} from "next";
+
 export function isEmailFormatValid(email:string){
     let emailRegexPattern = /^[a-zA-Z0-9-_]+(?:\.?[a-zA-Z0-9-_]+)*(?:\+[a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_])*)*@[a-zA-Z0-9-_]+\.[a-zA-Z0-9-_]+/gm;
     return emailRegexPattern.test(email.trim());
@@ -58,4 +61,44 @@ export function randomString(len:number=18){
 export function titleCase(str:string){
     if (str.length < 1) return str;
     return str[0].toUpperCase() + str.substr(1);
+}
+
+export type ClientIdBuilderOptions = {
+    req:NextApiRequest,
+    ipAddress?:string,
+    userAgent?:string,
+    host?:string,
+    lang?:string,
+} | {
+    ipAddress:string,
+    userAgent:string,
+    host:string,
+    lang:string,
+    req?:NextApiRequest
+};
+
+export function calculateClientId(opt:ClientIdBuilderOptions){
+    let calculatedIp = !opt ? null : (opt.req.headers["x-forwarded-for"] || opt.req.socket.remoteAddress).toString();
+    let ip = (opt.ipAddress ?? calculatedIp ?? "0.0.0.0").replace('::ffff:', '');
+    let ua = opt.userAgent ?? opt.req.headers["user-agent"] ?? randomString(8);
+    let ho = opt.host ?? opt.req.headers["host"] ?? "projectfunction.io";
+    let lg = opt.lang ?? opt.req.headers["accept-language"] ?? "en-US";
+    let st = dateFormat(new Date(), "MMMM YYYY");
+
+    return cyrb53([ip, ho, ua, lg, st].join(";")).toString(16);
+}
+
+export function safeStringify(obj){
+    return JSON.stringify(obj, (() => {
+        const seen = new WeakSet();
+        return (key, value) => {
+            if (typeof value === "object" && value !== null) {
+                if (seen.has(value)) {
+                    return;
+                }
+                seen.add(value);
+            }
+            return value;
+        };
+    })());
 }

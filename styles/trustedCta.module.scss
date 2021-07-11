@@ -1,0 +1,64 @@
+@import "globals/_prefs";
+@import "globals/_vars";
+@import "globals/_reusables";
+
+.sponsorIcons {
+	max-width: 800px;
+	margin: 2.125rem;
+	display: block;
+	text-align: center;
+	
+	> svg {
+		margin: 10px 30px;
+		color: var(--lm-black4-white1);
+	}
+}
+
+.patronList {
+	@extend .cleanPara;
+	padding: 0;
+	text-align: center;
+	
+	li {
+		display: inline;
+		text-transform: capitalize;
+		a {
+			text-decoration: none;
+			color: inherit;
+			opacity: 1;
+			&:hover {
+				text-decoration: underline;
+				color: var(--special-community);
+			}
+		}
+	}
+}
+
+.SponsorBlock {
+	background: var(--lm-white1-black1);
+	min-height: 68vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem;
+	
+	h3 {
+		color: var(--lm-black4-white3);
+		font-style: normal;
+		font-weight: 600;
+		font-size: 26px;
+		line-height: 113%;
+		font-family: 'Open Sans', sans-serif;
+		margin-bottom: 1.2em;
+		text-transform: capitalize;
+	}
+	
+	h4 {
+		font-family: "Open Sans",sans-serif;
+	}
+	
+	& > * {
+		max-width: 800px;
+	}
+}

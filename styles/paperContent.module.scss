@@ -2,12 +2,26 @@
 @import "globals/_vars";
 @import "globals/_reusables";
 
-.articleContentBlock {
-	margin: 2rem 0;
+.paperContentBlock {
+	margin: 1rem 0;
+	
+	@media (querySize("mobile:medium")) {
+		margin: 2rem 0 1rem;
+	}
+	
+	@media (querySize("tablet")) {
+		margin: 3rem 0 2rem;
+	}
+	
+	@media (querySize("desktop")) {
+		margin: 6rem 0;
+	}
 	
 	header{
 		
 		h1{
+			margin-top: 0;
+			
 			color: var(--nm-black5);
 			font-style: normal;
 			font-weight: 800;
@@ -16,7 +30,6 @@
 			font-family: 'Open Sans', sans-serif;
 			margin-bottom: 1.2em;
 			text-transform: uppercase;
-			margin-top: 2em;
 			
 			span{
 				color: var(--lm-black1-white0);
@@ -24,9 +37,6 @@
 				width: 100%;
 			}
 			
-			@media (querySize("mobile:large")){
-				margin-top: auto;
-			}
 		}
 		
 		h3{
@@ -63,26 +73,21 @@
 		font-style: normal;
 		color: var(--lm-black1-white0);
 		
+		margin: 2.125rem 0 0;
+		max-width: 800px;
+		
 		ol, ul{
 			margin-top: 0;
 		}
 	}
 	
-	& > *{
-		margin: 2.125rem auto;
-		padding: 0 2.125rem;
-		max-width: 800px;
-		
-	}
+	
+	//@media (querySize("tablet")) {
+	//	margin: 3rem 0 1rem;
+	//}
+	//
+	//@media (querySize("desktop")) {
+	//	margin: 6rem 0;
+	//}
 	
 }
-
-
-.flex__item{
-	justify-content: center;
-	
-	.outlined {
-		border: 1px solid var(--special-brand);
-	}
-}
-

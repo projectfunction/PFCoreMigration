@@ -3,6 +3,7 @@ import {CourseDetail, CourseDetailCard} from "./CourseDetailCard";
 import Grid from "./Grid"
 import {useEffect, useState} from "react";
 import {dateParse} from "../utils/dateHelper";
+import ContentContainer from "./ContentContainer";
 
 export default function JoinSection({}){
 
@@ -35,7 +36,7 @@ export default function JoinSection({}){
 	}, []);
 
 	return (
-		<section className={joinUpcomingStyle.joinSection}>
+		<ContentContainer>
 			<div className={joinUpcomingStyle.header}>
 				<h2>Join our next waves</h2>
 
@@ -48,6 +49,6 @@ export default function JoinSection({}){
 					return <CourseDetailCard {...courseInfo} key={`course-detail-${i}`}/>
 				})}
 			</Grid>
-		</section>
+		</ContentContainer>
 	)
 }
