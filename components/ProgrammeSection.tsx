@@ -4,11 +4,12 @@ import afterCareSvg from "./vectors/after_care_logo.svg"
 import {ChromaTextHeading} from "./ChromaText";
 import Grid, {GridItem} from "./Grid";
 import ContentContainer from "./ContentContainer";
+import Anchor from "./Anchor";
 
 
-export default function ProgrammeSection({}){
+export default function ProgrammeSection(props:{isFullHeight?:boolean}){
 	return (
-		<ContentContainer className={programmeSectionStyles.section}>
+		<ContentContainer className={programmeSectionStyles.section} fullHeight={props.isFullHeight}>
 			<ChromaTextHeading type={"collaboration"} chromaTextContent={"Our Community"}>
 				PF Programmes
 			</ChromaTextHeading>
@@ -25,7 +26,7 @@ export default function ProgrammeSection({}){
 						religion, or financial position, should have access to the resources they need to take
 						part in our courses.
 					</p>
-					<a href="/programmes/access-for-all" className={programmeSectionStyles.link}>Find out more</a>
+					<Anchor href="/programmes/access-for-all" className={programmeSectionStyles.link}>Find out more</Anchor>
 				</GridItem>
 
 
@@ -41,7 +42,7 @@ export default function ProgrammeSection({}){
 						guide you to create a professional portfolio, with projects to make your Github account stand
 						out.
 					</p>
-					<a href="/programmes/after-care" className={programmeSectionStyles.link}>Find out more</a>
+					<Anchor href="/programmes/after-care" className={programmeSectionStyles.link}>Find out more</Anchor>
 				</GridItem>
 
 			</Grid>

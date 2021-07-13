@@ -5,6 +5,7 @@ import pic2 from "./../public/public/core/images/pic2.jpg"
 import pic3 from "./../public/public/core/images/pic3.jpg"
 import patreonCtaStyle from "./../styles/patreon.module.scss"
 import PatreonCTA from "./PatreonCTA";
+import Anchor from "./Anchor";
 
 
 export default function OurStorySection({}){
@@ -42,7 +43,7 @@ export default function OurStorySection({}){
 
 				<p className={patreonCtaStyle.subText}>
 					If you are a company, you can support <br/> ProjectFunction through
-					our <a href="/impact/sponsor">sponsorship options</a>
+					our <Anchor href="/impact/sponsor">sponsorship options</Anchor>
 				</p>
 			</div>
 		</section>

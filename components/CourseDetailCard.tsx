@@ -2,6 +2,7 @@ import courseDetailStyles from "./../styles/courseDetailCard.module.scss"
 import laptopSvg from "./vectors/laptop_d.svg";
 import {dateFormat} from "../utils/dateHelper";
 import {titleCase} from "../utils/convinienceHelper";
+import Anchor from "./Anchor";
 
 export type CourseDetail = {
 	name: string,
@@ -39,7 +40,7 @@ export function CourseDetailCard(props:CourseDetail){
                 <span>{props.applicationStatus}</span>
             </p>
 
-			<a href={props.signupLink ?? "#"} aria-disabled={props.applicationStatus !== "Open"}>{props.applicationStatus === "Open" ? "Sign up" : props.applicationStatus}</a>
+			<Anchor href={props.signupLink ?? "#"} aria-disabled={props.applicationStatus !== "Open"}>{props.applicationStatus === "Open" ? "Sign up" : props.applicationStatus}</Anchor>
         </div>
 	)
 }

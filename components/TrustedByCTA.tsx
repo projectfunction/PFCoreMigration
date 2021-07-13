@@ -3,6 +3,7 @@ import sponsorCollabFutures from "./vectors/collabFutures.svg";
 import sponsorNTU from "./vectors/ntu.svg";
 import {useEffect, useState} from "react";
 import sponsorStyle from "./../styles/trustedCta.module.scss";
+import Anchor from "./Anchor";
 
 export default function TrustedByCTA(){
 	
@@ -47,7 +48,7 @@ export default function TrustedByCTA(){
 			<ul className={sponsorStyle.patronList}>
 				{Object.entries<string>(sponsors).map(([name,url], index) => {
 					let isLast = Object.keys(sponsors).length -1 === index;
-					return <li key={url}><a target="_blank" rel="noopener" href={url}>{name}</a>{isLast ? '' : ' ○ '}</li>
+					return <li key={url}><Anchor isExternal={true} href={url}>{name}</Anchor>{isLast ? '' : ' ○ '}</li>
 				})}
 			</ul>
 			<br/>

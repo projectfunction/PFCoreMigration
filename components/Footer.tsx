@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {faDiscord, faInstagram, faLinkedin, faTwitter} from "@fortawesome/free-brands-svg-icons"
 import {faAt} from "@fortawesome/free-solid-svg-icons";
 import {FooterProps} from "../utils/reactHelper";
+import Anchor from "./Anchor";
 
 export default function Footer({siteTheme}:FooterProps){
 	return (
@@ -11,29 +12,29 @@ export default function Footer({siteTheme}:FooterProps){
 			<div className={footerStyles.footerUpper}>
 				<div>
 					<span className="footer-col__title">Rule of Thumb</span>
-					<a href="/policies/privacy-policy">Privacy Policy</a>
-					<a href="/policies/terms-conditions">Terms & Conditions</a>
-					<a href="/policies/code-of-conduct">Code of Conduct</a>
+					<Anchor href="/policies/privacy-policy">Privacy Policy</Anchor>
+					<Anchor href="/policies/terms-conditions">Terms & Conditions</Anchor>
+					<Anchor href="/policies/code-of-conduct">Code of Conduct</Anchor>
 				</div>
 
 				<div>
 					<span className="footer-col__title">Learn</span>
-					<a href="https://campus.projectfunction.io">Learning Hub</a>
-					<a href="/courses">Our Courses</a>
-					<a href="/how-we-teach">How We Teach</a>
+					<Anchor href="https://campus.projectfunction.io">Learning Hub</Anchor>
+					<Anchor href="/courses">Our Courses</Anchor>
+					<Anchor href="/how-we-teach">How We Teach</Anchor>
 				</div>
 
 				<div>
 					<span className="footer-col__title">Programmes</span>
-					<a href="/programmes/access-for-all">Access For All</a>
-					<a href="/programmes/after-care">After Care</a>
+					<Anchor href="/programmes/access-for-all">Access For All</Anchor>
+					<Anchor href="/programmes/after-care">After Care</Anchor>
 				</div>
 
 				<div>
 					<span className="footer-col__title">Impact</span>
-					<a href="/impact/sponsor">Sponsor</a>
-					<a href="/impact/jobs">Jobs</a>
-					<a href="/impact/events">Events</a>
+					<Anchor href="/impact/sponsor">Sponsor</Anchor>
+					<Anchor href="/impact/jobs">Jobs</Anchor>
+					<Anchor href="/impact/events">Events</Anchor>
 				</div>
 
 			</div>
@@ -48,26 +49,24 @@ export default function Footer({siteTheme}:FooterProps){
 				</div>
 
 				<div className={footerStyles.socials}>
-					<a href="https://twitter.com/ProjectFunction" target="_blank" rel="noopener" aria-label="Twitter">
+					<Anchor href="https://twitter.com/ProjectFunction" isExternal={true} aria-label="Twitter">
 						<FontAwesomeIcon icon={faTwitter}/>
-					</a>
-					<a href="https://www.linkedin.com/company/projectfunction" target="_blank" rel="noopener" aria-label="LinkedIn">
+					</Anchor>
+					<Anchor href="https://www.linkedin.com/company/projectfunction" isExternal={true} aria-label="LinkedIn">
 						<FontAwesomeIcon icon={faLinkedin}/>
-					</a>
-					<a href="mailto:nospam@projectfunction.io" onClick={(event)=> {
+					</Anchor>
+					<Anchor href="mailto:nospam@projectfunction.io" onClick={(event)=> {
 						event.preventDefault();
 						location.href=['@projectfunction.io',':socials','lto',' mai'].reverse().join('')
-					}} target="_blank" rel="noopener" aria-label="Email">
+					}} isExternal={true} aria-label="Email">
 						<FontAwesomeIcon icon={faAt}/>
-					</a>
-					<a href="https://projectfunction.io/discord" target="_blank"
-					   rel="noopener" aria-label="Discord">
+					</Anchor>
+					<Anchor href="https://projectfunction.io/discord" isExternal={true} aria-label="Discord">
 						<FontAwesomeIcon icon={faDiscord}/>
-					</a>
-					<a href="https://www.instagram.com/pfnotts/" target="_blank"
-					   rel="noopener" aria-label="Instagram">
+					</Anchor>
+					<Anchor href="https://www.instagram.com/pfnotts/" isExternal={true} aria-label="Instagram">
 						<FontAwesomeIcon icon={faInstagram}/>
-					</a>
+					</Anchor>
 				</div>
 			</div>
 		</footer>

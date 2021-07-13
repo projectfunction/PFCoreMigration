@@ -13,7 +13,7 @@ window['ga']=window['ga']||function(){
 };
 window['ga'].l=1*new Date();
 
-window['gClientId'] = '${clientId}';
+window['gClientId'] = 'nextsite-${clientId}';
 	
 ga('create', 'UA-168556474-2', {
 	'storage': 'none',

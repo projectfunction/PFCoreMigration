@@ -5,6 +5,15 @@
 .paperContentBlock {
 	margin: 1rem 0;
 	
+	a {
+		color: var(--special-community);
+		opacity: 1;
+		
+		&:hover{
+			opacity: 0.8;
+		}
+	}
+	
 	@media (querySize("mobile:medium")) {
 		margin: 2rem 0 1rem;
 	}

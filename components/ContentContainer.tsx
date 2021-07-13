@@ -9,7 +9,7 @@ export type ContentContainerProps = {
 
 export default function ContentContainer({children, className, fullHeight}:ContentContainerProps){
 	return (
-		<section className={ [style.containerSection, className, fullHeight ? style.fullHeight : ''].join(" ") }>
+		<section className={ [fullHeight ? style.fullHeight : '', style.containerSection, className].join(" ") }>
 			{children}
 		</section>
 	)

@@ -5,6 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 
 import logoSvg from "./vectors/pf_logo.svg"
 import {faBars} from "@fortawesome/free-solid-svg-icons";
+import Anchor from "./Anchor";
 
 export default function Nav({siteTheme}:NavProps){
 	let [banner, setBannerValue] = useState({hasValue:false, message:""});
@@ -32,37 +33,37 @@ export default function Nav({siteTheme}:NavProps){
 
 	return (
 		<>
-			{when(banner.hasValue, ()=>(
+			{!!banner.hasValue && (
 				<div className={navStyles.preNavBanner}>
 					<p dangerouslySetInnerHTML={markup(banner.message)}/>
 				</div>
-			))}
+			)}
 
 			<nav ref={navRef} data-theme={siteTheme} className={navClassName} onBlurCapture={blurHandler}>
 				<ul>
 					<li className={navStyles.logoContainer}>
-						<a href="/" title={"ProjectFunction"}>
+						<Anchor href="/" title={"ProjectFunction"}>
 							{logoSvg()}
-						</a>
+						</Anchor>
 						<button aria-label="toggle" onClick={()=>openSubMenu("-")}>
 							<FontAwesomeIcon icon={faBars}/>
 						</button>
 					</li>
-					<li><a href="/about">About us</a></li>
+					<li><Anchor href="/about">About us</Anchor></li>
 					<NavItemSubMenu menuName={"Learn"} nameOfOpenSub={navState.openedSubMenu} onActive={openSubMenu}>
-						<li><a href="https://campus.projectfunction.io" target="_blank">Learning Hub</a></li>
-						<li><a href="/courses">Our Courses</a></li>
-						<li><a href="/how-we-teach">How we teach</a></li>
+						<li><Anchor href="https://campus.projectfunction.io" isExternal={true}>Learning Hub</Anchor></li>
+						<li><Anchor href="/courses">Our Courses</Anchor></li>
+						<li><Anchor href="/how-we-teach">How we teach</Anchor></li>
 					</NavItemSubMenu>
 					<NavItemSubMenu menuName={"Programmes"} nameOfOpenSub={navState.openedSubMenu} onActive={openSubMenu}>
-						<li><a href="/programmes/access-for-all">Access For All</a></li>
-						<li><a href="/programmes/after-care">After Care</a></li>
+						<li><Anchor href="/programmes/access-for-all">Access For All</Anchor></li>
+						<li><Anchor href="/programmes/after-care">After Care</Anchor></li>
 					</NavItemSubMenu>
-					<li><a href="/notes">Notes</a></li>
+					<li><Anchor href="/notes">Notes</Anchor></li>
 					<NavItemSubMenu menuName={"Impact"} nameOfOpenSub={navState.openedSubMenu} onActive={openSubMenu}>
-						<li><a href="/impact/sponsor">Sponsor</a></li>
-						<li><a href="/impact/jobs">Jobs</a></li>
-						<li><a href="/impact/events">Events</a></li>
+						<li><Anchor href="/impact/sponsor">Sponsor</Anchor></li>
+						<li><Anchor href="/impact/jobs">Jobs</Anchor></li>
+						<li><Anchor href="/impact/events">Events</Anchor></li>
 					</NavItemSubMenu>
 				</ul>
 			</nav>
@@ -83,7 +84,7 @@ function NavItemSubMenu({onActive, menuName, nameOfOpenSub, children}){
 			<span onMouseOver={()=>onActive(key)}>{menuName}</span>
 
 			<ul className={ nameOfOpenSub === key ? navStyles.subMenuOpen : navStyles.subMenu }>
-				<li><a href="#" className="nav-back">Back</a></li>
+				<li><Anchor href="#" className="nav-back">Back</Anchor></li>
 				{children}
 			</ul>
 		</li>

@@ -5,6 +5,7 @@ import Grid from "./Grid";
 import {useState} from "react";
 import ContentContainer from "./ContentContainer";
 import Image from "next/image"
+import Anchor from "./Anchor";
 
 export type NoteCardProps = {
 	slug:string,
@@ -19,7 +20,7 @@ export type NoteCardProps = {
 export function NoteCard({slug, coverImage, category, name, summary, createdBy, publishDate}:NoteCardProps){
 	return (
 		<div className={noteStyles.notePreviewCard}>
-			<a href={"/notes/" + slug }>
+			<Anchor href={"/notes/" + encodeURIComponent(slug) }>
 				<div className={noteStyles.notePreviewImage}>
 					<img src={coverImage} alt="" loading="lazy" height={140.625} width={250}/>
 				</div>
@@ -28,7 +29,7 @@ export function NoteCard({slug, coverImage, category, name, summary, createdBy, 
 					<h5>{name}</h5>
 					{summary != undefined ? <p>{summary}</p> : null}
 				</div>
-			</a>
+			</Anchor>
 
 			{createdBy != undefined && publishDate != undefined ? (
 				<div className={noteStyles.notePreviewMeta}>
@@ -82,18 +83,18 @@ export function NotesCTA(){
 					<div className={noteStyles.notePreviewList}>
 						{blogPosts.splice(0, 5).map((b, i) => {
 							return (
-								<a href={"/notes/" + b.slug} key={"note_preview_list_item" + i}>
+								<Anchor href={"/notes/" + encodeURIComponent(b.slug)} key={"note_preview_list_item" + i}>
 									<h5>{b.name}</h5>
 									<p>{ dateFormat(new Date(b.publishDate), "D MMM YYYY") }</p>
-								</a>
+								</Anchor>
 							)
 						})}
 
 						<div/>
 
-						<a href="/notes">
+						<Anchor href="/notes">
 							View all Notes
-						</a>
+						</Anchor>
 					</div>
 				</Grid>
 

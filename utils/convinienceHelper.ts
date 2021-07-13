@@ -124,3 +124,11 @@ export const throttle = (()=>{
         }
     }
 })();
+
+export function isPathLocal(path:string){
+    if (path.indexOf(":") === -1) return true;
+    for (let protocolStart of ["https:", "http:", "ftp:", "sftp:", "ftps:", "file:"]){
+        if (path.toLowerCase().startsWith(protocolStart)) return false;
+    }
+    return true;
+}

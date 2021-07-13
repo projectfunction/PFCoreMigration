@@ -56,7 +56,7 @@ export function dateParse(dateString:string, format:string="DD MM YYYY", failQui
 export function dateFormat(date:string, format:string)
 export function dateFormat(date:Date, format:string)
 export function dateFormat(inputDate:Date|string, format:string="DD MM YYYY"){
-	let date:Date = typeof inputDate === "string" ? new Date(inputDate) : inputDate;
+	let date:Date = (typeof inputDate === "string" || <any>inputDate instanceof String) ? new Date(inputDate) : <Date>inputDate;
 
 	return format
 		.replace(/(MMMM)/gm, months[date.getUTCMonth()])

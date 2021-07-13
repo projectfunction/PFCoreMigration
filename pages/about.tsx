@@ -9,7 +9,7 @@ export default function About(){
 	let siteTheme = useTheme();
 
 	return (
-		<MainLayout siteTheme={siteTheme}>
+		<MainLayout siteTheme={siteTheme} pageTitle={"Who we are"}>
 			<ContentContainer>
 				<SimplePaper title={"ABOUT US\nWHO WE ARE"}>
 					<p>ProjectFunction came about as a result of how difficult it is for beginners to pick up web development

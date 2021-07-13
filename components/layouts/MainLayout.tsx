@@ -7,10 +7,11 @@ export type LayoutProps = {
 	children: ReactNode,
 	pageTitle?: string,
 	pageDescription?: string,
-	siteTheme?: string
+	siteTheme?: string,
+	socialsCoverImage?: string
 }
 
-export default function MainLayout({children, pageTitle, pageDescription, siteTheme}:LayoutProps){
+export default function MainLayout({children, pageTitle, pageDescription, siteTheme, socialsCoverImage}:LayoutProps){
 
 	const keywords = [
 		"ProjectFunction",
@@ -40,6 +41,7 @@ export default function MainLayout({children, pageTitle, pageDescription, siteTh
 
 				<title>{pageTitle ? `${pageTitle} • ProjectFunction` : "ProjectFunction"}</title>
 				<meta name="description" content={pageDescription ?? "Creating pathways for the marginalised in tech"} />
+				<meta property="og:description" content={pageDescription ?? "Creating pathways for the marginalised in tech"} />
 
 				<meta property="og:title" content="ProjectFunction" />
 				<meta property="og:site_name" content="ProjectFunction" />
@@ -49,6 +51,7 @@ export default function MainLayout({children, pageTitle, pageDescription, siteTh
 				<meta name="theme-color" content="#ffffff" />
 				{/* @ts-ignore */}
 				<meta name="theme-color" content="#0f0f0f" media={"(prefers-color-scheme: dark)"}/>
+
 				<link rel="dns-prefetch" href="https://www.google-analytics.com"/>
 				<script src="/api/gascript"/>
 			</Head>

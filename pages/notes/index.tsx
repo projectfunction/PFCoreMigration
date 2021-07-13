@@ -6,12 +6,23 @@ import {NoteCard} from "../../components/Notes";
 import noteStyles from "../../styles/notes.module.scss"
 import SimplePaper from "../../components/SimplePaper";
 import AnchorPodcastPlayer from "../../components/AnchorPodcastPlayer";
+import {useEffect, useState} from "react";
+import useSearchQueries from "../../utils/useSearchQueries";
 
 export default function Notes({blogPosts, latestPodcast}){
 	let siteTheme = useTheme();
 
+	const [posts, setPosts] = useState(blogPosts);
+	const {query} = useSearchQueries();
+
+	useEffect(()=>{
+		if (query['by']){
+			setPosts(blogPosts.filter(b => [b.createdBy.username, b.createdBy.uuid].indexOf(query['by']) > -1))
+		}
+	}, [query]);
+
 	return (
-		<MainLayout siteTheme={siteTheme}>
+		<MainLayout siteTheme={siteTheme} pageTitle={"A few words from PF"}>
 			<ContentContainer>
 				<SimplePaper title={"NOTES\nA FEW WORDS FROM PF"} >
 					<br/>
@@ -19,7 +30,7 @@ export default function Notes({blogPosts, latestPodcast}){
 					<AnchorPodcastPlayer src={latestPodcast} />
 
 					<Grid className={noteStyles.noteGrid}>
-						{blogPosts.map((b, i) => {
+						{posts.map((b, i) => {
 							return (
 								<NoteCard
 									key={"note_card_" + i}
