@@ -1,0 +1,112 @@
+@import "globals/_prefs";
+@import "globals/_vars";
+@import "globals/_reusables";
+
+.card {
+	@extend .smoothShadow;
+	border: 1px solid gray;
+	padding: 0.5rem;
+	border-radius: 2px;
+	
+	& > a {
+		display: block;
+		width: 100%;
+		position: relative;
+		text-decoration: none;
+		
+		&:hover .content h3 {
+			color: inherit;
+		}
+	}
+	
+	&:hover {
+		border-color: var(--special-community);
+	}
+	
+	.categories {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		order: 4;
+		width: 100%;
+		align-items: center;
+		margin-top: 1rem;
+		
+		a {
+			text-decoration: none;
+			color: var(--lm-black2-white3);
+			
+			&:hover {
+				color: var(--special-community);
+			}
+		}
+		
+		.catEntry {
+			margin: 0 0.5rem 0 0;
+			background: var(--lm-white2-black3);
+			color: inherit;
+			font-size: 0.8rem;
+			padding: 0.2rem 0.4rem;
+			border-radius: 3px;
+		}
+		
+	}
+	
+	.dates {
+		margin-top: 0.5rem;
+		font-size: 0.8rem;
+		
+		p {
+			margin: 0;
+		}
+	}
+}
+
+.coverImage {
+	background: var(--special-community);
+	position: relative;
+	width: 100%;
+	padding-top: 56.25%;
+	transition: all .7s;
+	z-index: 1;
+	
+	img{
+		object-fit: cover;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top:0;
+		left: 0;
+		transition: transform .4s;
+		z-index: 1;
+	}
+}
+
+.instructorPic {
+	border-radius: 50%;
+	margin: -24px 2rem 0 auto;
+	z-index: 2;
+	display: block;
+	position: relative;
+	width: 48px;
+	height: 48px;
+	overflow: hidden;
+	box-shadow: var(--lm-white0-black2) 0 0 0 0.3rem ;
+	background: var(--lm-white0-black2);
+	
+	img{
+		object-fit: cover;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.content {
+	h3 {
+		margin: 0;
+		font-size: 1.5rem;
+	}
+}
