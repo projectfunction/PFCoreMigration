@@ -132,3 +132,16 @@ export function isPathLocal(path:string){
     }
     return true;
 }
+
+export function arrayOverlaps<T = string|number>(arr1:Array<T>, arr2:Array<T>){
+    let [bigger, smaller] = arr1.length > arr2.length ? [arr1, arr2] : [arr2, arr1];
+    for (let item of bigger){
+        if (smaller.findIndex(value => item === value) > -1) return true;
+    }
+    return false;
+}
+
+export function dateDiffInDays(pastDate:Date, futureDate:Date){
+    let difference = futureDate.getTime() - pastDate.getTime();
+    return difference / (1000 * 60 * 60 * 24)
+}

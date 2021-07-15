@@ -1,29 +1,21 @@
 import {AppProps, NextWebVitalsMetric} from "next/app"
-// import "../styles/globals/main.css" //TODO Remove this
+import {ThemeContextProvider} from "../components/ThemeContextProvider";
 
 import "../styles/theme/__theme_vars.scss"
 import "../styles/theme/pride_overrides.scss"
 import "../styles/globals/__defaults.scss"
 import "../styles/globals/__fonts.scss"
-import {ThemeContextProvider} from "../components/ThemeContextProvider";
 
 export function reportWebVitals(metrics:NextWebVitalsMetric) {
 	const { id, name, label, value } = metrics;
-	// window['ga']('event', name, {
-	// 	event_category: label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
-	// 	value: Math.round(name === 'CLS' ? value * 1000 : value), // values must be integers
-	// 	event_label: id, // id unique to current page load
-	// 	non_interaction: true, // avoids affecting bounce rate.
-	// });
 
 	window['ga']('send', 'event', {
 		eventCategory: label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
 		eventValue: Math.round(name === 'CLS' ? value * 1000 : value), // values must be integers
 		eventLabel: id, // id unique to current page load
-		eventAction: 'reportWebVitals',
-		nonInteraction: true,
-	})
-	console.log('reported', metrics);
+		eventAction: name,
+		nonInteraction: true, // avoids affecting bounce rate.
+	});
 }
 
 export default function App({Component, pageProps}:AppProps){

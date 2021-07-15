@@ -14,8 +14,8 @@ export type ArticleBlockProps = Props<{
 	createdBy: {
 		firstName: string,
 		lastName: string,
-		uuid: string,
-		profilePicture: string,
+		uuid?: string,
+		profilePicture?: string,
 		username: string
 	}
 }>;

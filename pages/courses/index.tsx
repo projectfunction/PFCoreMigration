@@ -8,24 +8,54 @@ import SimplePaper from "../../components/SimplePaper";
 import {useEffect, useState} from "react";
 import useSearchQueries from "../../utils/useSearchQueries";
 import {CourseCard} from "../../components/CourseCard";
+import {arrayOverlaps, dateDiffInDays} from "../../utils/convinienceHelper";
 
 
-export default function Courses({courses:courseList}){
+export default function Courses({courseList}){
 	let siteTheme = useTheme();
 
-	const [courses, setCourses] = useState(courseList);
+	const [courses, setCourses] = useState({
+		future: [],
+		current: [],
+		past: []
+	});
 	const {query} = useSearchQueries();
 
 	useEffect(()=>{
-		if (query['cat']){
+		let list = courseList;
+		if (query['cat']) {
 			let cats = query['cat'].split(",").map(w => decodeURIComponent(w).trim());
-			let list = courseList.filter(function(c){
-				return c.categories.filter(function(cx){
-					return cats.findIndex(w => w === cx) > -1
-				}).length > 0
-			})
-			setCourses(list);
+			list = courseList.filter(c => arrayOverlaps(cats, c.categories));
 		}
+
+		setCourses({
+				current: list.filter(c => {
+					let startDate = new Date(c.startDate);
+					let endDate = new Date(c.endDate);
+					let currentDate = new Date();
+
+					let daysSinceStart = dateDiffInDays(startDate, currentDate);
+					let daysSinceEnd = dateDiffInDays(endDate, currentDate);
+
+					return (daysSinceStart > -30 && daysSinceEnd <= 20);
+				}),
+				future: list.filter(c => {
+					let startDate = new Date(c.startDate);
+					let currentDate = new Date();
+
+					let daysSinceStart = dateDiffInDays(startDate, currentDate);
+
+					return (daysSinceStart <= -30);
+				}).reverse(),
+				past: list.filter(c => {
+					let currentDate = new Date();
+					let endDate = new Date(c.endDate);
+
+					let daysSinceEnd = dateDiffInDays(endDate, currentDate);
+
+					return (daysSinceEnd > 20);
+				})
+			});
 	}, [query]);
 
 	return (
@@ -33,8 +63,33 @@ export default function Courses({courses:courseList}){
 			<ContentContainer>
 				<SimplePaper title={"COURSES\nFIND YOUR FIT"} >
 
+					<br/>
+					<h3>CURRENT COURSES</h3>
+
 					<Grid className={noteStyles.noteGrid}>
-						{courses.map((b, i) => {
+						{courses.current.map((b, i) => {
+							return (
+								<CourseCard key={i} {...b}/>
+							)
+						})}
+					</Grid>
+
+					<br/>
+					<h3>FUTURE COURSES</h3>
+
+					<Grid className={noteStyles.noteGrid}>
+						{courses.future.map((b, i) => {
+							return (
+								<CourseCard key={i} {...b}/>
+							)
+						})}
+					</Grid>
+
+					<br/>
+					<h3>PAST COURSES</h3>
+
+					<Grid className={noteStyles.noteGrid}>
+						{courses.past.map((b, i) => {
 							return (
 								<CourseCard key={i} {...b}/>
 							)
@@ -42,6 +97,7 @@ export default function Courses({courses:courseList}){
 					</Grid>
 
 				</SimplePaper>
+
 			</ContentContainer>
 		</MainLayout>
 	)
@@ -52,7 +108,7 @@ export async function getStaticProps(params) {
 
 	return {
 		props: {
-			courses: await courses.json()
+			courseList: await courses.json()
 		},
 		revalidate: 60
 	}

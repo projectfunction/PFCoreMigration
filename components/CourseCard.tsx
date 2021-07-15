@@ -1,9 +1,5 @@
 import {dateFormat} from "../utils/dateHelper";
-import useSWR from "swr";
 import courseStyles from "./../styles/courses.module.scss"
-import Grid from "./Grid";
-import {useState} from "react";
-import ContentContainer from "./ContentContainer";
 import Anchor from "./Anchor";
 
 export type CourseCardProps = {
@@ -30,7 +26,7 @@ export type CourseCardProps = {
 	startDate:string,
 	endDate:string,
 	sessionCount:number,
-	description:string,
+	description?:string,
 	isOnline:boolean
 };
 
