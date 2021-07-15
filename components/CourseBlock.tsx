@@ -1,5 +1,4 @@
 import courseBlockStyle from "./../styles/courseBlock.module.scss"
-import articleBlockStyle from "./../styles/articleContent.module.scss"
 import {markdown} from "../utils/reactHelper";
 import {dateFormat} from "../utils/dateHelper";
 import {titleCase} from "../utils/convinienceHelper";
@@ -43,19 +42,22 @@ export default function CourseBlock(props:CourseCardProps){
 			<div className={courseBlockStyle.cta}>
 				<img src={props.coverImage} alt={""} width={1280} height={712} className={courseBlockStyle.heroImage}/>
 				<div>
-					<ul>
-						<li><strong>Start Date:</strong> {titleCase(dateFormat(props.startDate, "MMMM D, YYYY"))}</li>
-						<li><strong>End Date:</strong> {titleCase(dateFormat(props.endDate, "MMMM D, YYYY"))}</li>
-						<li><strong>Capacity:</strong> {props.capacity}</li>
-						<li><strong>Sessions:</strong> {props.sessionCount}</li>
-						<li>
-							<button>Apply</button>
-						</li>
-					</ul>
+					<img src={props.leadInstructors[0].profilePic} alt="" width={64} height={64}/>
+					<p>
+						Led by
+						<strong>{[props.leadInstructors[0].firstName, props.leadInstructors[0].lastName].join(" ")}</strong>
+					</p>
+					<span>{titleCase(dateFormat(props.startDate, "MMMM D, YYYY"))} - {titleCase(dateFormat(props.endDate, "MMMM D, YYYY"))}</span>
+
+					<div>
+						<p><strong>{props.capacity}</strong><span>Capacity</span></p>
+						<p><strong>{props.isOnline ? 'Remote' : 'In Person'}</strong><span>Location</span></p>
+						<p><strong>{props.sessionCount}</strong><span>Sessions</span></p>
+					</div>
 				</div>
 			</div>
 
-			<div className={articleBlockStyle.body}>
+			<div className={courseBlockStyle.body}>
 				<div dangerouslySetInnerHTML={markdown(props.description)} />
 			</div>
 

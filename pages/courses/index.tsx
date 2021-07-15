@@ -9,6 +9,7 @@ import {useEffect, useState} from "react";
 import useSearchQueries from "../../utils/useSearchQueries";
 import {CourseCard} from "../../components/CourseCard";
 import {arrayOverlaps, dateDiffInDays} from "../../utils/convinienceHelper";
+import Anchor from "../../components/Anchor";
 
 
 export default function Courses({courseList}){
@@ -26,6 +27,11 @@ export default function Courses({courseList}){
 		if (query['cat']) {
 			let cats = query['cat'].split(",").map(w => decodeURIComponent(w).trim());
 			list = courseList.filter(c => arrayOverlaps(cats, c.categories));
+		}
+
+		if (query['by']) {
+			let by = query['by'].split(",").map(w => decodeURIComponent(w).trim());
+			list = courseList.filter(c => arrayOverlaps(by, c.leadInstructors.map(i => i.username)));
 		}
 
 		setCourses({
@@ -63,8 +69,7 @@ export default function Courses({courseList}){
 			<ContentContainer>
 				<SimplePaper title={"COURSES\nFIND YOUR FIT"} >
 
-					<br/>
-					<h3>CURRENT COURSES</h3>
+					{courses.current.length > 0 && <><br/><h3>CURRENT COURSES</h3></>}
 
 					<Grid className={noteStyles.noteGrid}>
 						{courses.current.map((b, i) => {
@@ -74,8 +79,7 @@ export default function Courses({courseList}){
 						})}
 					</Grid>
 
-					<br/>
-					<h3>FUTURE COURSES</h3>
+					{courses.future.length > 0 && <><br/><h3>FUTURE COURSES</h3></>}
 
 					<Grid className={noteStyles.noteGrid}>
 						{courses.future.map((b, i) => {
@@ -85,8 +89,7 @@ export default function Courses({courseList}){
 						})}
 					</Grid>
 
-					<br/>
-					<h3>PAST COURSES</h3>
+					{courses.past.length > 0 && <><br/><h3>PAST COURSES</h3></>}
 
 					<Grid className={noteStyles.noteGrid}>
 						{courses.past.map((b, i) => {
@@ -95,6 +98,9 @@ export default function Courses({courseList}){
 							)
 						})}
 					</Grid>
+
+					<br/>
+					{(query['by'] || query['cat']) && <Anchor href={"/courses"}>View all</Anchor>}
 
 				</SimplePaper>
 
