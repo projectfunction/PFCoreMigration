@@ -4,6 +4,7 @@ import {dateFormat} from "../utils/dateHelper";
 import {titleCase} from "../utils/convinienceHelper";
 import Anchor from "./Anchor";
 import {CourseCardProps} from "./CourseCard";
+import React from "react";
 
 export default function CourseBlock(props:CourseCardProps){
 	let title = props.name;
@@ -23,16 +24,16 @@ export default function CourseBlock(props:CourseCardProps){
 					{"Led by "}
 					{instructors.map((i, index) => {
 						return (
-							<>
+							<React.Fragment key={index}>
 								{index ? ', ' : ''}<Anchor href={"/courses?by=" + encodeURIComponent(i.username)}>{[i.firstName, i.lastName].join(" ")}</Anchor>
-							</>
+							</React.Fragment>
 						)
 					})}
 					{lastInstructor.map((i, index)=>{
 						return (
-							<>
+							<React.Fragment key={index}>
 								{instructors.length > 0 ? ' and ' : ''}<Anchor href={"/courses?by=" + encodeURIComponent(i.username)}>{[i.firstName, i.lastName].join(" ")}</Anchor>
-							</>
+							</React.Fragment>
 						)
 					})}
 				</span>

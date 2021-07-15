@@ -67,7 +67,7 @@ export default function Courses({courseList}){
 	return (
 		<MainLayout siteTheme={siteTheme} pageTitle={"Our courses"}>
 			<ContentContainer>
-				<SimplePaper title={"COURSES\nFIND YOUR FIT"} >
+				<SimplePaper title={":COURSES"} >
 
 					{courses.current.length > 0 && <><br/><h3>CURRENT COURSES</h3></>}
 
