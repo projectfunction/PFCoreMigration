@@ -17,7 +17,11 @@
 			max-width: $screen_desktop;
 		}
 	}
-	
+}
+
+.darkContainerSection {
+	@extend .containerSection;
+	background: var(--lm-white2-black1);
 }
 
 .fullHeight {

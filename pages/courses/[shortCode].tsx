@@ -7,6 +7,7 @@ import Head from "next/head"
 import {isPathLocal} from "../../utils/convinienceHelper";
 import {CourseCardProps} from "../../components/CourseCard";
 import CourseBlock from "../../components/CourseBlock";
+import MailingListCTA from "../../components/MailingListCTA";
 
 export default function CoursePage({course, shortCode}:{course:CourseCardProps, shortCode:string}){
 	const siteTheme = useTheme();
@@ -22,6 +23,8 @@ export default function CoursePage({course, shortCode}:{course:CourseCardProps, 
 			<ContentContainer>
 				<CourseBlock {...course} />
 			</ContentContainer>
+
+			<MailingListCTA listIdentifier={`courses:${[...course.categories].sort().join(',')}`}/>
 
 		</MainLayout>
 	)
