@@ -1,0 +1,37 @@
+
+.container {
+	display: block;
+	margin: 1.2rem 2rem;
+	overflow-x: auto;
+	
+	table {
+		width: 100%;
+		border: 1px solid;
+		border-radius: 2px;
+		min-width: 650px;
+		
+		tr {
+			td {
+				padding: 5px 15px;
+				
+				&:nth-child(2),
+				&:nth-child(3) {
+					text-align: center;
+				}
+				
+				svg {
+					height: 1rem;
+				}
+			}
+			
+			th {
+				color: var(--lm-black1-white0);
+				padding: 10px;
+			}
+			
+			&:nth-of-type(even){
+				background: var(--lm-white2-black3);
+			}
+		}
+	}
+}

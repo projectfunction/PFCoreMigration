@@ -6,6 +6,10 @@ import ImageText from "../../components/ImageText";
 import PatreonCTA from "../../components/PatreonCTA";
 import TrustedByCTA from "../../components/TrustedByCTA";
 import ArticleBlock from "../../components/ArticleBlock";
+import tableStyle from "../../styles/table.module.scss"
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {faAt, faCheck} from "@fortawesome/free-solid-svg-icons";
 
 export default function SponsorUs(){
 	let siteTheme = useTheme();
@@ -54,119 +58,118 @@ export default function SponsorUs(){
 			</ContentContainer>
 			
 			<ContentContainer>
-				<ArticleBlock isMarkdown={false} title={":Here's how you can help"}>
-					<ol className="clean-para">
-						<li>
-							<strong>Partner with us</strong>
-							<br/>
-							If you are a company and are eager to work with us throughout the year on a
-							highly-tailored partnership plan, get in touch with us at <a href="mailto:partnership@projectfunction.io">partnership@projectfunction.io</a> to
-							go over how we can achieve this with you!
-							This is best suited to companies with medium to large teams.
-							<br/>
-							Perhaps you'd like to offer tickets to your conference to promote learning or run a workshop
-							for our learners with your team; partnering offers the best flexibility with how you choose to
-							impact PF.
-						</li>
-						<li>
-							<strong>Become a Sponsor</strong>
-							<br/>
-							If you are a company and would like to help us make a difference through our dynamic
-							sponsorship options (we also accept sponsorship in-kind), drop us a line
-							at <a href="mailto:sponsor@projectfunction.io">sponsor@projectfunction.io</a>.
-							This is perfect for companies of all sizes.
-							<br/>
-							You can sign up to sponsor a specific PF course through two bands — Gold and Silver.
-							Sponsorship covers marketing materials, food and refreshments (pre-pandemic!)
-							for learners and instructors, digital infrastructure costs, print costs, and supports
-							everything else we may need to run these sessions.
-						</li>
+				<ArticleBlock isMarkdown={false} title={":Ways you can help"}>
 
-						<div className="table-container">
-							<table className="spons-table" cellSpacing="10px">
-								<tr>
-									<th></th>
-									<th>GOLD</th>
-									<th>SILVER</th>
-								</tr>
-								<tr>
-									<td>Support for 9 sessions</td>
-									<td><i className="fas fa-check"></i></td>
-									<td><i className="fas fa-check"></i></td>
-								</tr>
-								<tr>
-									<td>Opportunity to speak briefly to the learners at any
-										end-of-course demo events
-									</td>
-									<td><i className="fas fa-check"></i></td>
-									<td><i className="fas fa-check"></i></td>
-								</tr>
-								<tr>
-									<td>Distribution of marketing swag with our learners</td>
-									<td><i className="fas fa-check"></i></td>
-									<td><i className="fas fa-check"></i></td>
-								</tr>
-								<tr>
-									<td>Your logo + link included in marketing of our courses on
-										our website
-									</td>
-									<td><i className="fas fa-check"></i></td>
-									<td><i className="fas fa-check"></i></td>
-								</tr>
-								<tr>
-									<td>Your logo on our PFLearner shirt</td>
-									<td><i className="fas fa-check"></i></td>
-									<td><i className="fas fa-check"></i></td>
-								</tr>
-								<tr>
-									<td>Twitter Mentions during sessions</td>
-									<td>(4 per month)</td>
-									<td>(2 per month)</td>
-								</tr>
-								<tr>
-									<td>Single weekly entry of news item (and link) into our
-										learning hub for learners
-									</td>
-									<td><i className="fas fa-check"></i></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>Logo on screen during session</td>
-									<td><i className="fas fa-check"></i></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>Your logo + link shared with PF mailing list when our
-										courses are promoted
-									</td>
-									<td><i className="fas fa-check"></i></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td></td>
-									<td>
-										<strong>£1200</strong><br/>
-										<span>(SOLD OUT)</span>
-									</td>
-									<td>
-										<strong>£700</strong><br/>
-										<span>(2 Remaining)</span>
-									</td>
-								</tr>
-							</table>
-						</div>
+					<h4>Partner with us</h4>
+					<p>
+						If you are a company and are eager to work with us throughout the year on a
+						highly-tailored partnership plan, get in touch with us at <a href="mailto:partnership@projectfunction.io">partnership@projectfunction.io</a> to
+						go over how we can achieve this with you!
+						This is best suited to companies with medium to large teams.
+						<br/>
+						Perhaps you'd like to offer tickets to your conference to promote learning or run a workshop
+						for our learners with your team; partnering offers the best flexibility with how you choose to
+						impact PF.
+					</p>
+					<br/>
 
-						<li>
-							<strong>Become a Patron</strong>
-							<br/>
-							If you are able to make a longer term commitment through a recurring pledge to support
-							our work, you can become a patron by visiting our <a href="https://www.patreon.com/projectfunction">Patreon</a> page
-							(if you are already a patron, refer your friend to sign up!). This is the ideal choice for
-							individuals.
-						</li>
+					<h4>Become a Sponsor</h4>
+					<p>
+						If you are a company and would like to help us make a difference through our dynamic
+						sponsorship options (we also accept sponsorship in-kind), drop us a line
+						at <a href="mailto:sponsor@projectfunction.io">sponsor@projectfunction.io</a>.
+						This is perfect for companies of all sizes.
+						<br/>
+						You can sign up to sponsor a specific PF course through two bands — Gold and Silver.
+						Sponsorship covers marketing materials, food and refreshments (pre-pandemic!)
+						for learners and instructors, digital infrastructure costs, print costs, and supports
+						everything else we may need to run these sessions.
+					</p>
+					<br/>
+					<div className={tableStyle.container}>
+						<table cellSpacing="0">
+							<tr>
+								<th/>
+								<th>GOLD</th>
+								<th>SILVER</th>
+							</tr>
+							<tr>
+								<td>Support for 9 sessions</td>
+								<td><FontAwesomeIcon icon={faCheck}/></td>
+								<td><FontAwesomeIcon icon={faCheck}/></td>
+							</tr>
+							<tr>
+								<td>Opportunity to speak briefly to the learners at any
+									end-of-course demo events
+								</td>
+								<td><FontAwesomeIcon icon={faCheck}/></td>
+								<td><FontAwesomeIcon icon={faCheck}/></td>
+							</tr>
+							<tr>
+								<td>Distribution of marketing swag with our learners</td>
+								<td><FontAwesomeIcon icon={faCheck}/></td>
+								<td><FontAwesomeIcon icon={faCheck}/></td>
+							</tr>
+							<tr>
+								<td>Your logo + link included in marketing of our courses on
+									our website
+								</td>
+								<td><FontAwesomeIcon icon={faCheck}/></td>
+								<td><FontAwesomeIcon icon={faCheck}/></td>
+							</tr>
+							<tr>
+								<td>Your logo on our PFLearner shirt</td>
+								<td><FontAwesomeIcon icon={faCheck}/></td>
+								<td><FontAwesomeIcon icon={faCheck}/></td>
+							</tr>
+							<tr>
+								<td>Twitter Mentions during sessions</td>
+								<td>(4 per month)</td>
+								<td>(2 per month)</td>
+							</tr>
+							<tr>
+								<td>Single weekly entry of news item (and link) into our
+									learning hub for learners
+								</td>
+								<td><FontAwesomeIcon icon={faCheck}/></td>
+								<td/>
+							</tr>
+							<tr>
+								<td>Logo on screen during session</td>
+								<td><FontAwesomeIcon icon={faCheck}/></td>
+								<td/>
+							</tr>
+							<tr>
+								<td>Your logo + link shared with PF mailing list when our
+									courses are promoted
+								</td>
+								<td><FontAwesomeIcon icon={faCheck}/></td>
+								<td/>
+							</tr>
+							<tr>
+								<td/>
+								<td>
+									<strong>£1200</strong><br/>
+									<span>(SOLD OUT)</span>
+								</td>
+								<td>
+									<strong>£700</strong><br/>
+									<span>(2 Remaining)</span>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<br/>
 
-						<PatreonCTA isLight={true}/>
-                    </ol>
+					<h4>Become a Patron</h4>
+					<p>
+						If you are able to make a longer term commitment through a recurring pledge to support
+						our work, you can become a patron by visiting our <a href="https://www.patreon.com/projectfunction">Patreon</a> page
+						(if you are already a patron, refer your friend to sign up!). This is the ideal choice for
+						individuals.
+					</p>
+					<br/>
+					<PatreonCTA isLight={true}/>
 				</ArticleBlock>
 			</ContentContainer>
 

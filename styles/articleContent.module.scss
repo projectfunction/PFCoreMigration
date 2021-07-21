@@ -52,10 +52,19 @@
 		color: var(--lm-black4-white3);
 		font-style: normal;
 		font-weight: 600;
-		font-size: 26px;
+		font-size: 1.625rem;
 		line-height: 113%;
 		font-family: 'Open Sans', sans-serif;
 		margin-bottom: 1.2em;
+		text-transform: capitalize;
+	}
+	
+	h4 {
+		color: var(--lm-black3-white2);
+		font-weight: 600;
+		font-size: 1.525rem;
+		line-height: 105%;
+		font-family: 'Open Sans', sans-serif;
 		text-transform: capitalize;
 	}
 	
@@ -173,6 +182,7 @@
 		
 		& > p,
 		& > div > p,
+		& > div > h4,
 		& > div > ul,
 		& > div > ol {
 			margin: 1.2rem 2rem;
@@ -204,3 +214,4 @@
 		}
 	}
 }
+
