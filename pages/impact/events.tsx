@@ -28,7 +28,7 @@ export default function Events({events}){
 
 export async function getStaticProps(params) {
 	let noop = ()=>{};
-	let e = await fetch("http://localhost:3000/api/ndevents").catch(noop);
+	let e = await fetch("https://projectfunction.io/api/ndevents").catch(noop);
 	let r = !!e ? await e.json() : {data:[]};
 
 	return {
