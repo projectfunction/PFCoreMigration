@@ -34,14 +34,14 @@ export default function SponsorUs(){
 			</ContentContainer>
 
 			<ContentContainer isDark={true}>
-				<ImageText imageUrl="/public/core/images/pf_why_spons_1.jpg" imageAlt="Course selection" title="Help build a more diverse tech industry">
+				<ImageText imageUrl="/public/core/images/pf_why_spons_1.jpg" imageAlt="" title="Help build a more diverse tech industry">
 					We’re working hard to improve the tech industry in Nottingham by supporting and encouraging people
 					from all backgrounds to get involved with technology. We provide free access to learners who are
 					interested in development but have no idea where to start. We bridge the gap between those in the
 					industry, and those outside or excluded from it.
 				</ImageText>
 
-				<ImageText imageUrl="/public/core/images/pf_why_spons_2.jpg" imageAlt="Course selection" title="Attract Fresh Talent">
+				<ImageText imageUrl="/public/core/images/pf_why_spons_2.jpg" imageAlt="" title="Attract Fresh Talent">
 					We bridge the gap between the industry and hidden talents. Our learners come from a range of
 					different backgrounds, and by taking part in ProjectFunction, they bring their unique experiences
 					and skills over to the tech community. With this access to skills, we work with local companies in
@@ -49,7 +49,7 @@ export default function SponsorUs(){
 				</ImageText>
 
 				{/*TODO Copy needs updating*/}
-				<ImageText imageUrl="/public/core/images/pf_why_spons_3.jpg" imageAlt="Course selection" title="Bridging The Gap">
+				<ImageText imageUrl="/public/core/images/pf_why_spons_3.jpg" imageAlt="" title="Bridging The Gap">
 					We bridge the gap between the industry and hidden talents. Our learners come from a range of
 					different backgrounds, and by taking part in ProjectFunction, they bring their unique experiences
 					and skills over to the tech community. With this access to skills, we work with local companies in

@@ -1,0 +1,29 @@
+@import "./globals/_prefs";
+@import "./globals/_reusables";
+
+.errorBlock {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+	
+	h3 {
+		font-family: 'Open Sans', sans-serif;
+		font-style: normal;
+		font-weight: 800;
+		font-size: 50px;
+		line-height: 113%;
+		text-align: center;
+		margin-top: 30px;
+		margin-bottom: 40px;
+		color: var(--lm-black1-white1);
+	}
+	
+	p {
+		@extend .cleanPara;
+		text-align: center;
+		color: var(--lm-black3-white3);
+	}
+}

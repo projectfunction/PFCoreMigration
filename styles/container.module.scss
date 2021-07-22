@@ -1,5 +1,6 @@
 @import "globals/_prefs";
 @import "globals/_vars";
+@import "globals/_reusables";
 
 .containerSection {
 	display: flex;
@@ -15,6 +16,31 @@
 		
 		@media (querySize("desktop:large")){
 			max-width: $screen_desktop;
+		}
+	}
+	
+	& > p {
+		@extend .cleanPara;
+	}
+	
+	& > figure {
+		margin: 0;
+		
+		img {
+			@extend .smoothShadow;
+			border-radius: 3px;
+			width: 100%;
+		}
+		
+		figcaption {
+			display: block;
+			text-align: center;
+			font-style: italic;
+			color: var(--lm-black4-white3);
+			padding: 8px 0;
+			font-family: 'Open Sans', sans-serif;
+			letter-spacing: 0.2px;
+			font-size: 0.75rem;
 		}
 	}
 }

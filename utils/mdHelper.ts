@@ -77,6 +77,14 @@ class Mark {
 		return this.md.render(input);
 	}
 
+	ensureSafeAnchor(input:string){
+		return input.replace(/<a ((?!target="_blank").)*?>/gm, (substring) => {
+			return `<a target="_blank" ${substring.substr(2)}`;
+		}).replace(/<a ((?!rel="noopener").)*?>/gm, (substring) => {
+			return `<a rel="noopener" ${substring.substr(2)}`;
+		});
+	}
+
 }
 
 export default new Mark();

@@ -70,6 +70,8 @@ export function dateFormat(inputDate:Date|string, format:string="DD MM YYYY"){
 }
 
 export function timeFormat(time:Date, format:string="hh:mm:ss"){
+	let m = time.getUTCHours() > 12 ? "pm" : "am";
+
 	return format
 		.replace(/(hh)/gm, time.getUTCHours().toString().padStart(2, "0"))
 		.replace(/(mm)/gm, time.getUTCMinutes().toString().padStart(2, "0"))
@@ -77,4 +79,5 @@ export function timeFormat(time:Date, format:string="hh:mm:ss"){
 		.replace(/(h)/gm, time.getUTCHours().toString())
 		.replace(/(m)/gm, time.getUTCMinutes().toString())
 		.replace(/(s)/gm, time.getUTCSeconds().toString())
+		.replace(/(x)/gm, m)
 }
