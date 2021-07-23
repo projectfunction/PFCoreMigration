@@ -41,8 +41,10 @@ export default function CourseBlock(props:CourseCardProps){
 			</header>
 
 			<div className={courseBlockStyle.cta}>
-				<img src={props.coverImage} alt={""} width={1280} height={712} className={courseBlockStyle.heroImage}/>
-				<div>
+				<div className={courseBlockStyle.ctaImage}>
+					<img src={props.coverImage} alt={""} width={1280} height={712} className={courseBlockStyle.heroImage}/>
+				</div>
+				<div className={courseBlockStyle.ctaContent}>
 					<img src={props.leadInstructors[0].profilePic} alt="" width={64} height={64}/>
 					<p>
 						Led by
@@ -57,6 +59,15 @@ export default function CourseBlock(props:CourseCardProps){
 					</div>
 				</div>
 			</div>
+
+			{props.isOpen && (
+				<div className={courseBlockStyle.cta}>
+					<Anchor
+						href={`https://campus.projectfunction.io/x/enrol/${props.shortCode}`}
+						className={courseBlockStyle.ctaAction}
+					>Enrol</Anchor>
+				</div>
+			)}
 
 			<div className={courseBlockStyle.body}>
 				<div dangerouslySetInnerHTML={markdown(props.description)} />

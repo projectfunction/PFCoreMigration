@@ -83,41 +83,45 @@
 	padding: 1rem;
 	background: var(--lm-white2-black3);
 	border-radius: 3px;
+	margin-bottom: 1rem;
 	@extend .smoothShadow;
 	
-	& > div,
-	& > img {
+	.ctaContent {
 		width: 100%;
 		margin: 0;
 	}
 	
-	& > img {
+	.ctaImage {
 		display: none;
+		position: relative;
 	}
 	
 	@media (querySize("tablet")) {
-		& > img {
-			display: block;
+		.ctaImage {
+			display: flex;
 		}
 	}
 	
 	@media (querySize("tablet")) {
 		flex-direction: row;
 		
-		& > div,
-		& > img {
+		.ctaContent,
+		.ctaImage {
 			width: 50%;
 		}
 	}
 	
-	& > img {
+	.ctaImage img{
 		object-fit: cover;
 		object-position: left center;
 		flex: 1;
 		max-height: 340px;
+		width: 100%;
+		border-radius: 2px;
+		margin: 0;
 	}
 	
-	& > div {
+	.ctaContent {
 		display: inline-flex;
 		flex-direction: column;
 		
@@ -178,6 +182,29 @@
 					color: var(--lm-black3-white3);
 				}
 			}
+		}
+	}
+	
+	.ctaAction {
+		@extend .cleanPara;
+		@extend .smoothShadow;
+		
+		display: block;
+		margin: 0 auto;
+		
+		background: var(--special-community);
+		color: var(--lm-white2-black3);
+		
+		border-radius: 3px;
+		
+		padding: 0.6rem 1rem;
+		width: 100px;
+		text-align: center;
+		text-decoration: none;
+		
+		&:hover {
+			background: var(--special-brand);
+			opacity: 1;
 		}
 	}
 	
