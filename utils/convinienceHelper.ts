@@ -145,3 +145,13 @@ export function dateDiffInDays(pastDate:Date, futureDate:Date){
     let difference = futureDate.getTime() - pastDate.getTime();
     return difference / (1000 * 60 * 60 * 24)
 }
+
+export function createUrl(host:string, queryParams:{[key:string]:string}){
+    let url = `${host}?`;
+
+    for (let property in queryParams){
+        url += `${property}=${encodeURIComponent(queryParams[property])}&`;
+    }
+
+    return url.substr(0, url.length - 1);
+}

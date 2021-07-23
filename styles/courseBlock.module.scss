@@ -87,43 +87,11 @@
 	@extend .smoothShadow;
 	
 	.ctaContent {
-		width: 100%;
-		margin: 0;
-	}
-	
-	.ctaImage {
-		display: none;
-		position: relative;
-	}
-	
-	@media (querySize("tablet")) {
-		.ctaImage {
-			display: flex;
-		}
-	}
-	
-	@media (querySize("tablet")) {
-		flex-direction: row;
-		
-		.ctaContent,
-		.ctaImage {
-			width: 50%;
-		}
-	}
-	
-	.ctaImage img{
-		object-fit: cover;
-		object-position: left center;
-		flex: 1;
-		max-height: 340px;
-		width: 100%;
-		border-radius: 2px;
-		margin: 0;
-	}
-	
-	.ctaContent {
 		display: inline-flex;
 		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		margin: 0;
 		
 		img {
 			width: 64px;
@@ -185,26 +153,92 @@
 		}
 	}
 	
+	.ctaImage {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		
+		img{
+			display: none;
+			object-fit: cover;
+			object-position: left center;
+			flex: 1;
+			max-height: 340px;
+			width: 100%;
+			border-radius: 2px;
+			margin: 0;
+		}
+	}
+	
+	@media (querySize("tablet")) {
+		.ctaImage {
+			img {
+				display: block;
+			}
+		}
+	}
+	
+	@media (querySize("tablet")) {
+		flex-direction: row;
+		
+		.ctaContent,
+		.ctaImage {
+			width: 50%;
+		}
+	}
+	
 	.ctaAction {
 		@extend .cleanPara;
-		@extend .smoothShadow;
 		
 		display: block;
-		margin: 0 auto;
 		
 		background: var(--special-community);
 		color: var(--lm-white2-black3);
 		
 		border-radius: 3px;
 		
-		padding: 0.6rem 1rem;
-		width: 100px;
+		padding: 0.475rem 3rem;
 		text-align: center;
 		text-decoration: none;
+		margin: 1rem 0 0;
+		width: 100%;
 		
 		&:hover {
+			@extend .smoothShadow;
 			background: var(--special-brand);
 			opacity: 1;
+		}
+		
+		@media (querySize("mobile:large")) {
+			width: 32%;
+		}
+		
+		@media (querySize("tablet")) {
+			width: auto;
+			margin: 0;
+		}
+	}
+	
+	.ctaActionGroup {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+		margin-top: 1rem;
+		
+		@media (querySize("mobile:large")){
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
+	
+	.ctaActionSecondary {
+		@extend .ctaAction;
+		
+		background: var(--lm-black4-white2);
+		
+		&:hover{
+			background: var(--lm-black3-white3);
 		}
 	}
 	

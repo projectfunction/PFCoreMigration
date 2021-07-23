@@ -18,6 +18,7 @@ export default function CoursePage({course, shortCode}:{course:CourseCardProps, 
 				<meta property="og:image" content={ isPathLocal(course.coverImage) ? `https://projectfunction.io${course.coverImage}` : course.coverImage } />
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta property="og:url" content={`https://projectfunction.io/courses/${ shortCode }`} />
+				<link rel="canonical" href={`https://projectfunction.io/courses/${ shortCode }`} />
 			</Head>
 
 			<ContentContainer>

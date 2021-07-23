@@ -38,6 +38,7 @@ export default function MainLayout({children, pageTitle, pageDescription, siteTh
 				<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
 				<link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
 				<link rel="mask-icon" href="/favicon.svg" color="#6a64e8" />
+				<link rel="me" href="https://twitter.com/projectfunction" />
 
 				<title>{pageTitle ? `${pageTitle} • ProjectFunction` : "ProjectFunction"}</title>
 				<meta name="description" content={pageDescription ?? "Creating pathways for the marginalised in tech"} />
