@@ -26,6 +26,10 @@ module.exports = {
 				destination: 'https://api.projectfunction.io/open/:path*',
 			},
 			{
+				source: '/resources/public/:path*',
+				destination: 'https://campus.projectfunction.io/public/:path*',
+			},
+			{
 				source: '/sitemap.xml',
 				destination: '/api/sitemap',
 			},

@@ -84,7 +84,7 @@ function NavItemSubMenu({onActive, menuName, nameOfOpenSub, children}){
 			<span onMouseOver={()=>onActive(key)}>{menuName}</span>
 
 			<ul className={ nameOfOpenSub === key ? navStyles.subMenuOpen : navStyles.subMenu }>
-				<li><Anchor href="#" className="nav-back">Back</Anchor></li>
+				<li><Anchor isExternal={true} className="nav-back">Back</Anchor></li>
 				{children}
 			</ul>
 		</li>

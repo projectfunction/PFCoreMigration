@@ -49,7 +49,7 @@ export default function Footer({siteTheme}:FooterProps){
 				</div>
 
 				<div className={footerStyles.socials}>
-					<Anchor href="https://twitter.com/ProjectFunction" isExternal={true} aria-label="Twitter">
+					<Anchor href="https://twitter.com/intent/follow?user_id=1075373010515824640" isExternal={true} aria-label="Twitter">
 						<FontAwesomeIcon icon={faTwitter}/>
 					</Anchor>
 					<Anchor href="https://www.linkedin.com/company/projectfunction" isExternal={true} aria-label="LinkedIn">

@@ -11,3 +11,19 @@ export type NDEvent = {
 	event_url: string,
 	iso_date: string
 }
+
+export type CertificateApiResponse = {
+	certificateFound: boolean,
+	data: {
+		owner?: {
+			firstName: string,
+			lastName: string
+		},
+		grantedOn?: string,
+		expiry?: string,
+		certUrl?: string,
+		isValid?: boolean,
+		previewUrl?: string,
+		hasPreview?: boolean
+	}
+}

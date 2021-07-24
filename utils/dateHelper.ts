@@ -58,7 +58,15 @@ export function dateFormat(date:Date, format:string)
 export function dateFormat(inputDate:Date|string, format:string="DD MM YYYY"){
 	let date:Date = (typeof inputDate === "string" || <any>inputDate instanceof String) ? new Date(inputDate) : <Date>inputDate;
 
+	let positionalDeterminator = date.getUTCDate().toString().split('').slice(-1)[0];
+	let positional = 'th';
+
+	if (positionalDeterminator === '1') positional = 'st';
+	if (positionalDeterminator === '2') positional = 'nd';
+	if (positionalDeterminator === '3') positional = 'rd';
+
 	return format
+		.replace(/(x)/gm, positional)
 		.replace(/(MMMM)/gm, months[date.getUTCMonth()])
 		.replace(/(MMM)/gm, months[date.getUTCMonth()].substr(0, 3))
 		.replace(/(DD)/gm, date.getUTCDate().toString().padStart(2, "0"))

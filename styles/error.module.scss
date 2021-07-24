@@ -26,4 +26,12 @@
 		text-align: center;
 		color: var(--lm-black3-white3);
 	}
+	
+	a {
+		color: var(--special-community);
+		
+		&:hover {
+			opacity: 0.8;
+		}
+	}
 }

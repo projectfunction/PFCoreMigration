@@ -3,7 +3,7 @@ import {MouseEventHandler, ReactNode} from "react";
 
 export type AnchorProps = {
 	children: ReactNode,
-	href: string,
+	href?: string,
 	isExternal?: boolean,
 	className?:string,
 	title?:string,
@@ -12,6 +12,10 @@ export type AnchorProps = {
 
 export default function Anchor(props:AnchorProps){
 	const {isExternal, children, href, ...otherProps} = props;
+
+	if (!href){
+		return <a {...otherProps} >{children}</a>
+	}
 
 	if (isExternal) {
 		return (
