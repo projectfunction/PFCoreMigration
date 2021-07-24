@@ -17,3 +17,8 @@ export default function Jobs(){
 		</MainLayout>
 	)
 }
+
+export const getServerSideProps = async ({ res }) => {
+	res.statusCode = 503;
+	return { props: {} };
+};

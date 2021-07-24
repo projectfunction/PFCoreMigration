@@ -25,6 +25,36 @@ module.exports = {
 				source: '/api/open/:path*',
 				destination: 'https://api.projectfunction.io/open/:path*',
 			},
+			{
+				source: '/sitemap.xml',
+				destination: '/api/sitemap',
+			},
+			{
+				source: '/robot.txt',
+				destination: '/api/robot',
+			},
 		]
 	},
+	async headers() {
+		return [
+			{
+				source: "/api/sitemap",
+				headers: [
+					{
+						key: 'Cache-control',
+						value: 'public, max-age=900'
+					}
+				]
+			},
+			{
+				source: "/sitemap.xml",
+				headers: [
+					{
+						key: 'Cache-control',
+						value: 'public, max-age=900'
+					}
+				]
+			}
+		]
+	}
 }
