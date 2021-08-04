@@ -29,12 +29,24 @@ export default function Events({events}){
 export async function getStaticProps(params) {
 	let noop = ()=>{};
 	let e = await fetch("https://projectfunction.io/api/ndevents").catch(noop);
-	let r = !!e ? await e.json() : {data:[]};
+	try{
+		let r = !!e ? await e.json() : {data:[]};
 
-	return {
-		props: {
-			events: r.data,
-		},
-		revalidate: 60 * 2
+		return {
+			props: {
+				events: r.data,
+			},
+			revalidate: 60 * 2
+		}
+	}
+	catch(e){
+		console.warn("Failed to get any meaningful data for events. Will try again on revalidation");
+		console.warn(e);
+		return {
+			props: {
+				events: []	
+			},
+			revalidate: 60 * 2
+		}
 	}
 }
