@@ -5,6 +5,8 @@ import "../styles/theme/__theme_vars.scss"
 import "../styles/theme/pride_overrides.scss"
 import "../styles/globals/__defaults.scss"
 import "../styles/globals/__fonts.scss"
+import {useRouter} from "next/router";
+import {useEffect} from "react";
 
 export function reportWebVitals(metrics:NextWebVitalsMetric) {
 	const { id, name, label, value } = metrics;
@@ -26,6 +28,34 @@ export function reportWebVitals(metrics:NextWebVitalsMetric) {
 }
 
 export default function App({Component, pageProps}:AppProps){
+	const router = useRouter();
+
+	const navigate = (starting:boolean)=>{
+		if ('upg' in window){
+			if (starting) window['upg']._init?.();
+			else window['upg'].end?.();
+		}
+	};
+
+	useEffect(() => {
+		const handleStart = (url) => {
+			navigate(true);
+		}
+		const handleStop = () => {
+			navigate(false);
+		}
+
+		router.events.on('routeChangeStart', handleStart)
+		router.events.on('routeChangeComplete', handleStop)
+		router.events.on('routeChangeError', handleStop)
+
+		return () => {
+			router.events.off('routeChangeStart', handleStart)
+			router.events.off('routeChangeComplete', handleStop)
+			router.events.off('routeChangeError', handleStop)
+		}
+	}, [router])
+
 	return <ThemeContextProvider>
 		<Component {...pageProps} />
 	</ThemeContextProvider>
