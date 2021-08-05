@@ -37,6 +37,10 @@ module.exports = {
 				source: '/robot.txt',
 				destination: '/api/robot',
 			},
+			{
+				source: '/upghost.js',
+				destination: 'https://upghost.io/tag'
+			}
 		]
 	},
 	async headers() {
