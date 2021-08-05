@@ -56,6 +56,7 @@ export default function MainLayout({children, pageTitle, pageDescription, siteTh
 				<link rel="dns-prefetch" href="https://www.google-analytics.com"/>
 				<script src="/api/gascript"/>
 				<script src="/upghost.js" async/>
+				<script async src="/bee.js"/>
 			</Head>
 			<Nav siteTheme={siteTheme}/>
 

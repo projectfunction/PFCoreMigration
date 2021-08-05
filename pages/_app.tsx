@@ -9,8 +9,15 @@ import "../styles/globals/__fonts.scss"
 export function reportWebVitals(metrics:NextWebVitalsMetric) {
 	const { id, name, label, value } = metrics;
 
-	window['ga']('send', 'event', {
+	if ('ga' in window) window['ga']('send', 'event', {
 		eventCategory: label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
+		eventValue: Math.round(name === 'CLS' ? value * 1000 : value), // values must be integers
+		eventLabel: id, // id unique to current page load
+		eventAction: name,
+		nonInteraction: true, // avoids affecting bounce rate.
+	});
+	
+	if ('splitbee' in window) window['splitbee'].track(label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric', {
 		eventValue: Math.round(name === 'CLS' ? value * 1000 : value), // values must be integers
 		eventLabel: id, // id unique to current page load
 		eventAction: name,
