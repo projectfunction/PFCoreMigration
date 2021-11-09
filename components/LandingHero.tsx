@@ -11,7 +11,7 @@ export default function LandingHero({id, siteTheme}:propsWithTheme){
 
 
 					<p>
-						Since 2018, ProjectFunction has delivered over <b>60 free sessions</b> in
+						Since 2018, ProjectFunction has delivered over <b>76 free sessions</b> in
 						Web Development, and Unity.
 					</p>
 					<p>

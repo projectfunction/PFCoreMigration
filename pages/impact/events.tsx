@@ -39,14 +39,15 @@ export async function getStaticProps(params) {
 			revalidate: 60 * 2
 		}
 	}
-	catch(e){
+	catch(ex){
 		console.warn("Failed to get any meaningful data for events. Will try again on revalidation");
-		console.warn(e);
+		console.warn(ex);
+		console.log((!!e) ? e.text() : e);
 		return {
 			props: {
 				events: []	
 			},
-			revalidate: 60 * 2
+			revalidate: 1
 		}
 	}
 }

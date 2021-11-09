@@ -13,8 +13,8 @@ const groups = [
 ];
 
 async function getGroupInfo(groupName:string):Promise<NDEvent>{
-	let req = await fetch(`https://notts-digital.phpminds.uk/index.php?group=${encodeURIComponent(groupName)}`);
-	return (await req.json());
+	let req = await fetch(`https://notts-digital.phpminds.uk/index.php?group=${encodeURIComponent(groupName)}`).catch();
+	return (req ? await req.json() : {});
 }
 
 export default async function(req:NextApiRequest, res:NextApiResponse){
