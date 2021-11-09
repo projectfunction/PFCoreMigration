@@ -12,25 +12,24 @@ export default function JoinSection({}){
 	useEffect(()=>{
 		setCourses([
 			{
-				name: "GET STARTED\nWITH C#.NET",
-				applicationStatus: "Opening Soon",
-				duration: "9 Weeks",
-				location: "Remote/Online",
-				startDate: dateParse("3rd aug 2021", "DD MMM YYYY")
-			},
-			{
 				name: "INTRO TO\nWEB DEV",
 				applicationStatus: "Opening Soon",
 				duration: "9 Weeks",
-				location: "Remote/Online",
+				location: "TBC",
 				startDate: dateParse("22nd jan 2022", "DD MMM YYYY")
 			},
 			{
-				name: "PROGRAMMING\nFUNDAMENTALS",
-				applicationStatus: "Closed",
+				name: "WEB DEV BASICS\nWORKSHOP",
+				applicationStatus: "Opening Soon",
 				duration: "6 Hours",
+				location: "TBC"
+			},
+			{
+				name: "GET STARTED\nWITH C#.NET",
+				applicationStatus: "Cancelled",
+				duration: "9 Weeks",
 				location: "Remote/Online",
-				startDate: dateParse("3rd july 2021", "DD MMMM YYYY")
+				startDate: dateParse("3rd aug 2021", "DD MMM YYYY")
 			}
 		])
 	}, []);

@@ -6,10 +6,10 @@ import Anchor from "./Anchor";
 
 export type CourseDetail = {
 	name: string,
-	applicationStatus: "Open" | "Opening Soon" | "Closed",
+	applicationStatus: "Open" | "Opening Soon" | "Closed" | "Cancelled",
 	location: "Remote/Online" | string,
 	duration: string,
-	startDate: Date,
+	startDate?: Date,
 	signupLink?: string
 }
 
@@ -22,7 +22,7 @@ export function CourseDetailCard(props:CourseDetail){
 			<h3>{props.name.split("\n")[0]} <span>{props.name.split("\n")[1]}</span></h3>
             <p>
                 <strong>START DATE</strong>
-                <span>{titleCase(dateFormat(props.startDate, "MMM DD YYYY"))}</span>
+                <span>{props.startDate ? titleCase(dateFormat(props.startDate, "MMM DD YYYY")) : "To be confirmed"}</span>
             </p>
 
             <p>
