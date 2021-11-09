@@ -73,6 +73,15 @@ export default function SponsorUs(){
 					</p>
 					<br/>
 
+					<h4>PayPal Contributions</h4>
+					<p>
+						If you or your company are looking to make one-off contributions. We have a PayPal.me setup
+						to allow you to send your contributions quickly and easily. To begin, simply go to our <a href="https://paypal.me/projectfunction" target={"_blank"} rel={"noopener"}>PayPal.Me</a> page
+						and choose 'Send'. (A PayPal account may be required). This is ideal for small business and individuals
+						looking to make one-off contributions.
+					</p>
+					<br/>
+
 					<h4>Become a Sponsor</h4>
 					<p>
 						If you are a company and would like to help us make a difference through our dynamic
@@ -170,6 +179,7 @@ export default function SponsorUs(){
 					</p>
 					<br/>
 					<PatreonCTA isLight={true}/>
+
 				</ArticleBlock>
 			</ContentContainer>
 
