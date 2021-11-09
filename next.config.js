@@ -23,8 +23,16 @@ module.exports = {
 		return {
 			fallback: [
 				{
-					source: '/api/open/:path*',
+					source: '/legacy/open/:path*',
 					destination: 'https://projectfunction.io/legacy/open/:path*',
+				},
+				{
+					source: '/legacy-api/open/:path*',
+					destination: 'https://api.projectfunction.io/open/:path*',
+				},
+				{
+					source: '/api/open/:path*',
+					destination: 'https://api.projectfunction.io/legacy/open/:path*',
 				},
 				{
 					source: '/resources/public/:path*',
