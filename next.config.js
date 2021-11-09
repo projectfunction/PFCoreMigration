@@ -20,36 +20,38 @@ module.exports = {
 		return config;
 	},
 	async rewrites() {
-		return [
-			{
-				source: '/api/open/:path*',
-				destination: 'https://api.projectfunction.io/open/:path*',
-			},
-			{
-				source: '/resources/public/:path*',
-				destination: 'https://campus.projectfunction.io/public/:path*',
-			},
-			{
-				source: '/sitemap.xml',
-				destination: '/api/sitemap',
-			},
-			{
-				source: '/robot.txt',
-				destination: '/api/robot',
-			},
-			{
-				source: '/upghost.js',
-				destination: 'https://upghost.io/tag'
-			},
-			{
-				source: "/bee.js",
-				destination: "https://cdn.splitbee.io/sb.js",
-			},
-			{
-			      source: "/_hive/:slug",
-			      destination: "https://hive.splitbee.io/:slug",
-			}
-		]
+		return {
+			fallback: [
+				{
+					source: '/api/open/:path*',
+					destination: 'https://projectfunction.io/legacy/open/:path*',
+				},
+				{
+					source: '/resources/public/:path*',
+					destination: 'https://campus.projectfunction.io/public/:path*',
+				},
+				{
+					source: '/sitemap.xml',
+					destination: '/api/sitemap',
+				},
+				{
+					source: '/robot.txt',
+					destination: '/api/robot',
+				},
+				{
+					source: '/upghost.js',
+					destination: 'https://upghost.io/tag'
+				},
+				{
+					source: "/bee.js",
+					destination: "https://cdn.splitbee.io/sb.js",
+				},
+				{
+					source: "/_hive/:slug",
+					destination: "https://hive.splitbee.io/:slug",
+				}
+			]
+		}
 	},
 	async headers() {
 		return [
