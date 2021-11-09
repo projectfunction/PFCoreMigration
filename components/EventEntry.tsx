@@ -27,6 +27,8 @@ export default function EventEntry(props:Partial<NDEvent>){
 		});
 	},[]);
 
+	let g_photo = (group_photo && group_photo.length > 0) ? group_photo : `https://via.placeholder.com/60x60?text=${subject[0]}`;
+
 	return (
 		<div className={[isOpen ? eventStyles.entryOpen : eventStyles.entry].join(" ")}>
 			<div className={eventStyles.entryHead} ref={ref}>
@@ -39,7 +41,7 @@ export default function EventEntry(props:Partial<NDEvent>){
 					</span>
 				</div>
 
-				<img src={group_photo} alt={group} width={50} height={50}/>
+				<img data-s={g_photo} src={g_photo} alt={group} width={50} height={50}/>
 
 				<div className={eventStyles.entryTitle}>
 					<strong>{subject}</strong>
