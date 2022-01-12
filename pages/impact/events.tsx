@@ -2,7 +2,6 @@ import MainLayout from "../../components/layouts/MainLayout";
 import {useTheme} from "../../components/ThemeContextProvider";
 import ContentContainer from "../../components/ContentContainer";
 import SimplePaper from "../../components/SimplePaper";
-import {useState} from "react";
 import EventEntry from "../../components/EventEntry";
 import Anchor from "../../components/Anchor";
 
@@ -30,7 +29,7 @@ export async function getStaticProps(params) {
 	let noop = ()=>{};
 	let e = await fetch("https://projectfunction.io/api/ndevents").catch(noop);
 	try{
-		let r = !!e ? await e.json() : {data:[]};
+		let r = !!e ? await e.json().catch(noop) ?? {data:[]} : {data:[]};
 
 		return {
 			props: {
@@ -40,9 +39,7 @@ export async function getStaticProps(params) {
 		}
 	}
 	catch(ex){
-		console.warn("Failed to get any meaningful data for events. Will try again on revalidation");
-		console.warn(ex);
-		console.log((!!e) ? e.text() : e);
+		console.warn("Failed to get any meaningful data for events. Will try again on revalidation", {ex});
 		return {
 			props: {
 				events: []	

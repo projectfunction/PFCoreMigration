@@ -51,10 +51,10 @@ export default function CourseBlock(props:CourseCardProps){
 
 			<div className={courseBlockStyle.cta}>
 				<div className={courseBlockStyle.ctaContent}>
-					<img src={props.leadInstructors[0].profilePic} alt="" width={64} height={64}/>
+					<img src={props.leadInstructors[0]?.profilePic} alt="" width={64} height={64}/>
 					<p>
 						Led by
-						<strong>{[props.leadInstructors[0].firstName, props.leadInstructors[0].lastName].join(" ")}</strong>
+						<strong>{[props.leadInstructors[0]?.firstName ?? "Unknown", props.leadInstructors[0]?.lastName].join(" ")}</strong>
 					</p>
 					<span>{titleCase(dateFormat(props.startDate, "MMMM D, YYYY"))} - {titleCase(dateFormat(props.endDate, "MMMM D, YYYY"))}</span>
 
