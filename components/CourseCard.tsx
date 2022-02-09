@@ -37,8 +37,8 @@ export function CourseCard({shortCode, coverImage, categories, name, leadInstruc
 				<div className={courseStyles.coverImage}>
 					<img src={coverImage} alt="" loading="lazy" height={140.625} width={250}/>
 				</div>
-				<div className={courseStyles.instructorPic} title={`by ${leadInstructors[0].firstName} ${leadInstructors[0].lastName}`}>
-					<img src={leadInstructors[0].profilePic} alt="" loading="lazy" width={48} height={48}/>
+				<div className={courseStyles.instructorPic} title={`by ${leadInstructors[0]?.firstName ?? 'Unknown'} ${leadInstructors[0]?.lastName}`}>
+					<img src={leadInstructors[0]?.profilePic} alt="" loading="lazy" width={48} height={48}/>
 				</div>
 				<div className={courseStyles.content}>
 					<h3>{name}</h3>
