@@ -65,6 +65,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 			course: (await posts.json())?.[0] ?? null,
 			shortCode
 		},
-		revalidate: 60 * 5
+		revalidate: 60
 	};
 };
