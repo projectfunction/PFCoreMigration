@@ -13,13 +13,14 @@ export default function JoinSection({}){
 		setCourses([
 			{
 				name: "INTRO TO\nWEB DEV",
-				applicationStatus: "Opening Soon",
+				applicationStatus: "Open",
+				signupLink: "https://campus.projectfunction.io/x/enrol/wdb22022ts40",
 				duration: "9 Weeks",
 				location: "TBC",
-				startDate: dateParse("22nd jan 2022", "DD MMM YYYY")
+				startDate: dateParse("29nd mar 2022", "DD MMM YYYY")
 			},
 			{
-				name: "WEB DEV BASICS\nWORKSHOP",
+				name: "INTRO TO\nNEXT.JS",
 				applicationStatus: "Opening Soon",
 				duration: "6 Hours",
 				location: "TBC"
