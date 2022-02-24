@@ -7,8 +7,10 @@ import Head from "next/head"
 import {isPathLocal} from "../../utils/convinienceHelper";
 
 export default function NotePage({posts, slug}){
-	const {summary, name, content, publishDate, category, coverImage, createdBy, socialsCoverImage} = posts;
 	const siteTheme = useTheme();
+	if (!posts) return <pre>Not Found {slug}</pre>
+
+	const {summary, name, content, publishDate, category, coverImage, createdBy, socialsCoverImage} = posts;
 
 	return (
 		<MainLayout siteTheme={siteTheme} pageDescription={summary} pageTitle={name}>
