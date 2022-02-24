@@ -51,6 +51,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		props: {
 			posts: (await posts.json())[0],
 			slug
-		}
+		},
+		revalidate: 60
 	};
 };
