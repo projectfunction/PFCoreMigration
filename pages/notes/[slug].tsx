@@ -39,7 +39,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 	return {
 		paths: (await posts.json()).map(post => `/notes/${post.slug}`),
-		fallback: false,
+		fallback: true
 	};
 };
 
