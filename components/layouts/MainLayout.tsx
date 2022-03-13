@@ -76,11 +76,7 @@ export default function MainLayout({
 
         <meta name="theme-color" content="#ffffff" />
         {/* @ts-ignore */}
-        <meta
-          name="theme-color"
-          content="#0f0f0f"
-          media={"(prefers-color-scheme: dark)"}
-        />
+        <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)" />
 
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <script src="/api/gascript" />
