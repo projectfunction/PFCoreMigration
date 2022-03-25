@@ -16,7 +16,7 @@ export default function JoinSection({}){
 				applicationStatus: "Open",
 				signupLink: "https://campus.projectfunction.io/x/enrol/wdb22022ts40",
 				duration: "9 Weeks",
-				location: "TBC",
+				location: "Nonsuch Studios, 2 Lower Parliament St, Nottingham, NG1 1EH",
 				startDate: dateParse("29nd mar 2022", "DD MMM YYYY")
 			},
 			{
