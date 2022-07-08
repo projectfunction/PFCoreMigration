@@ -11,9 +11,11 @@ import {useRouter} from "next/router";
 import PlaceholderText from "../../components/PlaceholderText";
 import {getByShortcode, LocalCourses} from "../../utils/localCoursesCopy";
 
-export default function CoursePage({course, shortCode}:{course:CourseCardProps, shortCode:string}){
+export default function CoursePage({course, shortCode}:{course?:CourseCardProps, shortCode:string}){
 	const siteTheme = useTheme();
 	const router = useRouter();
+
+	if (!course) return <p>Failed to load posts</p>
 
 	return (
 		<MainLayout siteTheme={siteTheme} pageDescription={course?.description ?? ""} pageTitle={course?.name ?? ""}>

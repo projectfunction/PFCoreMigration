@@ -23,7 +23,7 @@ export function markup(content:any){
 }
 
 export function markdown(content:any, ensureSafeAnchor:boolean=true){
-	let transformedContent = Markdown.transform( content );
+	let transformedContent = !!content ? Markdown.transform( content ) : '';
 	return {
 		__html: ensureSafeAnchor ? Markdown.ensureSafeAnchor(transformedContent) : transformedContent
 	}
