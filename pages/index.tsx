@@ -6,6 +6,7 @@ import OurStorySection from "../components/OurStorySection";
 import ProgrammeSection from "../components/ProgrammeSection";
 import {NotesCTA} from "../components/Notes";
 import {useTheme} from "../components/ThemeContextProvider";
+import FarewellSection from "../components/FarewellSection";
 
 export default function Homepage(){
 	let siteTheme = useTheme();
@@ -13,7 +14,8 @@ export default function Homepage(){
 	return (
 		<MainLayout siteTheme={siteTheme}>
 			<LandingHero id={"hero"} siteTheme={siteTheme}/>
-			<JoinSection />
+			{/*<JoinSection />*/}
+			<FarewellSection />
 			<CommitmentSection />
 			<OurStorySection />
 			<ProgrammeSection />

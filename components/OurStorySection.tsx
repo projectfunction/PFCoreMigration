@@ -40,11 +40,6 @@ export default function OurStorySection({}){
 				</div>
 
 				<PatreonCTA />
-
-				<p className={patreonCtaStyle.subText}>
-					If you are a company, you can support <br/> ProjectFunction through
-					our <Anchor href="/impact/sponsor">sponsorship options</Anchor>
-				</p>
 			</div>
 		</section>
 	)

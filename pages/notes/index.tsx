@@ -8,6 +8,8 @@ import SimplePaper from "../../components/SimplePaper";
 import AnchorPodcastPlayer from "../../components/AnchorPodcastPlayer";
 import {useEffect, useState} from "react";
 import useSearchQueries from "../../utils/useSearchQueries";
+import {getNotesSummaryList} from "../../utils/localNotesCopy";
+import {LatestPodcast} from "../../utils/localPodcastCopy";
 
 export default function Notes({blogPosts, latestPodcast}){
 	let siteTheme = useTheme();
@@ -49,12 +51,12 @@ export default function Notes({blogPosts, latestPodcast}){
 }
 
 export async function getStaticProps(params) {
-	const posts = await fetch("https://api.projectfunction.io/open/notes/list-summary");
-	const podcast = await (await fetch("https://api.projectfunction.io/open/podcast/latest")).json();
+	const posts = getNotesSummaryList();
+	const podcast = LatestPodcast;
 
 	return {
 		props: {
-			blogPosts: await posts.json(),
+			blogPosts: posts,
 			latestPodcast: podcast.hasLatest ? podcast.latestEpisodeLink : null
 		},
 		revalidate: 60

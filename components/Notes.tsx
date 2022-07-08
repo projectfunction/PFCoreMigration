@@ -1,11 +1,10 @@
 import {dateFormat} from "../utils/dateHelper";
-import useSWR from "swr";
 import noteStyles from "./../styles/notes.module.scss"
 import Grid from "./Grid";
 import {useState} from "react";
 import ContentContainer from "./ContentContainer";
-import Image from "next/image"
 import Anchor from "./Anchor";
+import {LocalNotes} from "../utils/localNotesCopy";
 
 export type NoteCardProps = {
 	slug:string,
@@ -51,17 +50,9 @@ export function NoteCard({slug, coverImage, category, name, summary, createdBy, 
 }
 
 export function NotesCTA(){
-	const [retries, setRetries] = useState(0);
-	const { data, error, revalidate } = useSWR('/api/open/notes/list');
-	const blogPosts = data ?? [];
-	const isLoading = !data && !error;
+	const blogPosts = LocalNotes ?? [];
 
-	if (!isLoading && !error && data.length < 3 && retries < 3){
-		revalidate().catch(console.error);
-		setRetries(r => r+1);
-	}
-
-	return isLoading ? null : (
+	return (
 		<ContentContainer className={noteStyles.section}>
 
 				<Grid columnCount={3}>

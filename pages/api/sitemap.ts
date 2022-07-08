@@ -1,6 +1,8 @@
 import {NextApiRequest, NextApiResponse} from "next";
 import {readdir} from "fs/promises";
 import {join, resolve} from "path";
+import {getNotesSummaryList, LocalNotes} from "../../utils/localNotesCopy";
+import {LocalCourses} from "../../utils/localCoursesCopy";
 
 async function walk(filePath, filterCallback){
 	let results = [];
@@ -24,8 +26,8 @@ export default async function(req:NextApiRequest, res:NextApiResponse){
 	const currentPath = resolve("./pages/");
 
 	const [ courses, posts ] = await Promise.all([
-		fetch("https://api.projectfunction.io/open/courses/list").then(r => r.json()),
-		fetch("https://api.projectfunction.io/open/notes/list-summary").then(r => r.json())
+		LocalCourses,
+		LocalNotes
 	])
 
 	const pages = await walk(currentPath, async filePath => {

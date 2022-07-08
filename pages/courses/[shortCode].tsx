@@ -2,7 +2,6 @@ import {GetStaticPaths, GetStaticProps} from "next";
 import MainLayout from "../../components/layouts/MainLayout";
 import {useTheme} from "../../components/ThemeContextProvider";
 import ContentContainer from "../../components/ContentContainer";
-import ArticleBlock from "../../components/ArticleBlock";
 import Head from "next/head"
 import {isPathLocal} from "../../utils/convinienceHelper";
 import {CourseCardProps} from "../../components/CourseCard";
@@ -10,6 +9,7 @@ import CourseBlock from "../../components/CourseBlock";
 import MailingListCTA from "../../components/MailingListCTA";
 import {useRouter} from "next/router";
 import PlaceholderText from "../../components/PlaceholderText";
+import {getByShortcode, LocalCourses} from "../../utils/localCoursesCopy";
 
 export default function CoursePage({course, shortCode}:{course:CourseCardProps, shortCode:string}){
 	const siteTheme = useTheme();
@@ -48,21 +48,19 @@ export default function CoursePage({course, shortCode}:{course:CourseCardProps, 
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const course = await fetch("https://api.projectfunction.io/open/courses/list");
-
 	return {
-		paths: (await course.json()).map(course => `/courses/${course.shortCode}`),
+		paths: LocalCourses.map(course => `/courses/${course.shortCode}`),
 		fallback: true,
 	};
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const shortCode = params.shortCode as string;
-	const posts = await fetch(`https://api.projectfunction.io/open/courses/list?c=${shortCode}`);
+	const posts = getByShortcode(shortCode);
 
 	return {
 		props: {
-			course: (await posts.json())?.[0] ?? null,
+			course: (posts)?.[0] ?? null,
 			shortCode
 		},
 		revalidate: 60

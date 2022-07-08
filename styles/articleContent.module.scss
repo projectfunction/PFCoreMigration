@@ -213,5 +213,10 @@
 			margin: 4rem 0;
 		}
 	}
+	
+	& > div > h4 {
+		margin-top: 2.5rem;
+		color: var(--lm-black1-white0);
+	}
 }
 

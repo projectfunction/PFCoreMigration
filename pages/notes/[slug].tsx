@@ -5,6 +5,7 @@ import ContentContainer from "../../components/ContentContainer";
 import ArticleBlock from "../../components/ArticleBlock";
 import Head from "next/head";
 import { isPathLocal } from "../../utils/convinienceHelper";
+import {getBySlug, getNotesSummaryList} from "../../utils/localNotesCopy";
 
 export default function NotePage({ posts, slug }) {
   const siteTheme = useTheme();
@@ -59,25 +60,21 @@ export default function NotePage({ posts, slug }) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await fetch(
-    "https://api.projectfunction.io/open/notes/list-summary"
-  );
+  const posts = getNotesSummaryList();
 
   return {
-    paths: (await posts.json()).map((post) => `/notes/${post.slug}`),
+    paths: posts.map((post) => `/notes/${post.slug}`),
     fallback: true,
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params.slug as string;
-  const posts = await fetch(
-    `https://api.projectfunction.io/open/notes/list?p=${slug}`
-  );
+  const posts = getBySlug(slug);
 
   return {
     props: {
-      posts: (await posts.json())[0],
+      posts: posts[0],
       slug,
     },
     revalidate: 60,

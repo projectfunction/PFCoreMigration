@@ -7,16 +7,13 @@ export default function LandingHero({id, siteTheme}:propsWithTheme){
 		<section className={heroStyle.hero} id={id} data-theme={siteTheme}>
 			<div>
 				<div className={heroStyle.textBlock}>
-					<h1>Discover your <br/> Development Skills</h1>
+					<h1>A huge <br/> Thank you {'<'}3</h1>
 
 
 					<p>
-						Since 2018, ProjectFunction has delivered over <b>76 free sessions</b> in
-						Web Development, and Unity.
-					</p>
-					<p>
-						As we grow, we strive to continue our work to <b>create pathways for
-						the marginalised</b> in Tech.
+						Since 2018, ProjectFunction has worked to <b>create pathways for
+						the marginalised</b> in Tech for over <b>90 learners</b> by
+						delivering over <b>76 free sessions</b>.
 					</p>
 
 				</div>

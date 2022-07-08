@@ -10,6 +10,7 @@ import useSearchQueries from "../../utils/useSearchQueries";
 import {CourseCard} from "../../components/CourseCard";
 import {arrayOverlaps, dateDiffInDays} from "../../utils/convinienceHelper";
 import Anchor from "../../components/Anchor";
+import {LocalCourses} from "../../utils/localCoursesCopy";
 
 
 export default function Courses({courseList}){
@@ -110,11 +111,9 @@ export default function Courses({courseList}){
 }
 
 export async function getStaticProps(params) {
-	const courses = await fetch("https://api.projectfunction.io/open/courses/list");
-
 	return {
 		props: {
-			courseList: await courses.json()
+			courseList: LocalCourses
 		},
 		revalidate: 60
 	}

@@ -17,4 +17,19 @@
 		font-weight: 200;
 		letter-spacing: 0.2px;
 	}
+	
+	a {
+		background: var(--lm-white3-black3);
+		color: var(--lm-black1-white1);
+		padding: 10px 15px;
+		border-radius: 3px;
+		text-decoration: none;
+		
+		&:hover,
+		&:active,
+		&:focus {
+			background: var(--lm-black3-white2);
+			color: var(--lm-white3-black3);
+		}
+	}
 }
