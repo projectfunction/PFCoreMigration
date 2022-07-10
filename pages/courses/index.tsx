@@ -3,7 +3,6 @@ import MainLayout from "../../components/layouts/MainLayout";
 import {useTheme} from "../../components/ThemeContextProvider";
 import Grid from "../../components/Grid";
 import noteStyles from "../../styles/notes.module.scss";
-import {NoteCard} from "../../components/Notes";
 import SimplePaper from "../../components/SimplePaper";
 import {useEffect, useState} from "react";
 import useSearchQueries from "../../utils/useSearchQueries";

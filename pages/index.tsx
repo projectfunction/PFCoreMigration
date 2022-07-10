@@ -7,8 +7,9 @@ import ProgrammeSection from "../components/ProgrammeSection";
 import {NotesCTA} from "../components/Notes";
 import {useTheme} from "../components/ThemeContextProvider";
 import FarewellSection from "../components/FarewellSection";
+import {getNotesSummaryList} from "../utils/localNotesCopy";
 
-export default function Homepage(){
+export default function Homepage({blogPosts}){
 	let siteTheme = useTheme();
 
 	return (
@@ -19,7 +20,18 @@ export default function Homepage(){
 			<CommitmentSection />
 			<OurStorySection />
 			<ProgrammeSection />
-			<NotesCTA />
+			<NotesCTA notes={blogPosts}/>
 		</MainLayout>
 	)
+}
+
+export const getStaticProps =  () => {
+	const posts = getNotesSummaryList();
+
+	return {
+		props: {
+			blogPosts: posts
+		},
+		revalidate: 60
+	}
 }

@@ -1,14 +1,8 @@
 
 export function getNotesSummaryList() {
 	return LocalNotes.map(item => {
-		return {
-			name: item.name,
-			coverImage: item.coverImage,
-			category: item.category,
-			publishDate: item.publishDate,
-			slug: item.slug,
-			createdBy: item.createdBy
-		}
+		const {name, coverImage, category, publishDate, slug, createdBy, summary} = item;
+		return { name, coverImage, category, publishDate, slug, createdBy, summary }
 	});
 }
 

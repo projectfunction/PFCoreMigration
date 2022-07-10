@@ -1,10 +1,8 @@
 import {dateFormat} from "../utils/dateHelper";
 import noteStyles from "./../styles/notes.module.scss"
 import Grid from "./Grid";
-import {useState} from "react";
 import ContentContainer from "./ContentContainer";
 import Anchor from "./Anchor";
-import {LocalNotes} from "../utils/localNotesCopy";
 
 export type NoteCardProps = {
 	slug:string,
@@ -49,9 +47,8 @@ export function NoteCard({slug, coverImage, category, name, summary, createdBy, 
 	)
 }
 
-export function NotesCTA(){
-	const blogPosts = LocalNotes ?? [];
-
+export function NotesCTA({notes}){
+	const blogPosts = [...notes ?? []];
 	return (
 		<ContentContainer className={noteStyles.section}>
 
@@ -59,7 +56,7 @@ export function NotesCTA(){
 					{blogPosts.splice(0,2).map((b, i) => {
 						return (
 							<NoteCard
-								key={"note_card_" + i}
+								key={"note_card_" + b.slug}
 								slug={b.slug}
 								coverImage={b.coverImage}
 								category={b.category}
